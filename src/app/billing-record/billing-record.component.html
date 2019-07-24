@@ -19,6 +19,7 @@
         <th>Type</th>
         <th>Created By</th>
         <th>Total</th>
+        <th>Due Date</th>
         <!-- <th>Admin</th> -->
       </tr>
     </thead>
@@ -30,6 +31,7 @@
         <td>{{(billingRecord.rate && billingRecord.quantity) ? "Rate Based" : "Flat Fee"}}</td>
         <td>{{billingRecord.createdBy.username}}</td>
         <td>{{billingRecord.total}}</td>
+        <td>{{billingRecord.duedate}}</td>
         <!-- <td class="text-center">
           <a class="btn btn-primary" [routerLink]="['/billing-record/edit/', billingRecord.id]">Edit</a>&nbsp;
           <button (click)="deleteBillingRecord(billingRecord.id)" class="btn btn-danger">Delete</button>

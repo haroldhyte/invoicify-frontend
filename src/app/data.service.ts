@@ -10,9 +10,10 @@ import 'rxjs/add/observable/empty';
 
 @Injectable()
 export class DataService {
+    
+    private baseUrl = 'http://localhost:8080/api/'
 
-    private baseUrl = 'https://allyance-invoicify.herokuapp.com/api/'
-
+    //private baseUrl = 'https://allyiance-invoicify.herokuapp.com/api/'
     found = false;
 
     options = new RequestOptions({ withCredentials: true });

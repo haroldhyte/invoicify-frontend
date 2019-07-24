@@ -29,8 +29,8 @@ export class InvoiceFormComponent implements OnInit {
     private location: Location
   ) { }
 
-  ngOnInit() { 
-    this.getBillingRecords(); 
+  ngOnInit() {
+    this.getBillingRecords();
     this.getCompanies();
   }
 
@@ -89,7 +89,8 @@ export class InvoiceFormComponent implements OnInit {
   }
 
   formErrors = {
-    'invoiceDescription': ''
+    'invoiceDescription': '',
+    'dueDate' : ''
   };
 
   validationMessages = {
@@ -97,6 +98,10 @@ export class InvoiceFormComponent implements OnInit {
       'required': 'Description name is required.',
       'minlength': 'Description name must be at least 5 characters long.',
       'maxlength': 'Description name cannot be more than 30 characters long.'
+    },
+    'dueDate': {
+      'required': 'A due date is required.',
+      'pattern' : 'Must be a valid Date (MM/DD/YYYY)'
     }
   };
 }

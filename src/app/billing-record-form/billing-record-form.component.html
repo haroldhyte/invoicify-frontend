@@ -79,12 +79,12 @@
         </div>
       </div>
       <div clas="form-group">
-        <label for="duedate" class="col-sm-2 control-label">Due Date</label>
+        <label for="dueDate" class="col-sm-2 control-label">Due Date</label>
         <div class="col-sm-10">
-          <input ngModel #quantity="ngModel" type="date" class="form-control" id="duedate" name="duedate" placeholder="MM/DD/YYYY" required
+          <input ngModel #quantity="ngModel" type="date" class="form-control" id="dueDate" name="dueDate" placeholder="MM/DD/YYYY" required
             pattern="^(\d*\.)?\d+$">
           <span *ngIf="formErrors.quantity" class="text-danger">
-            {{ formErrors.duedate }}
+            {{ formErrors.dueDate }}
           </span>
         </div>
       </div>

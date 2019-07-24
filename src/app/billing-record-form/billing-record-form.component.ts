@@ -91,6 +91,7 @@ export class BillingRecordFormComponent implements OnInit {
     'rate': '',
     'quantity': '',
     'amount': ''
+    'duedate' : ''
   };
 
   validationMessages = {
@@ -107,6 +108,10 @@ export class BillingRecordFormComponent implements OnInit {
     },
     'amount': {
       'pattern': 'Must be a numeric value'
+    },
+    'duedate': {
+      'required': 'A due date is required.'
+      'pattern' : 'Must be a valid Date (MM/DD/YYYY)'
     }
   };
 }

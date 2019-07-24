@@ -90,7 +90,7 @@ export class BillingRecordFormComponent implements OnInit {
     'description': '',
     'rate': '',
     'quantity': '',
-    'amount': ''
+    'amount': '',
     'duedate' : ''
   };
 
@@ -110,7 +110,7 @@ export class BillingRecordFormComponent implements OnInit {
       'pattern': 'Must be a numeric value'
     },
     'duedate': {
-      'required': 'A due date is required.'
+      'required': 'A due date is required.',
       'pattern' : 'Must be a valid Date (MM/DD/YYYY)'
     }
   };

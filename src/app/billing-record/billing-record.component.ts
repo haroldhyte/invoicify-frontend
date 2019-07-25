@@ -30,11 +30,11 @@ export class BillingRecordComponent implements OnInit {
 
   payBillingRecord(billingRecordId) {
 
-    let endpoint = "billing-record/pay"
+    let endpoint = "billing-record/status"
 
     endpoint += "/" + billingRecordId
 
-    this.dataService.editRecord()
+    this.dataService.editRecord(endpoint, "paid")
       .subscribe(
         result => this.successMessage = "Record paid successfully",
         error => this.errorMessage = <any>error

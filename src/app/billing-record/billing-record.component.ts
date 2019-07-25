@@ -34,11 +34,16 @@ export class BillingRecordComponent implements OnInit {
 
     endpoint += "/" + billingRecordId
 
-    this.dataService.editRecord(endpoint, "paid")
+    let string = "paid"
+
+    this.dataService.editRecordField(endpoint, "paid")
       .subscribe(
         result => this.successMessage = "Record paid successfully",
         error => this.errorMessage = <any>error
       );
-    this.billingRecords.reset()
+    this.getBillingRecords()
+
+    // DEBUG:
+    console.log("paid: " + billingRecordId);
   }
 }

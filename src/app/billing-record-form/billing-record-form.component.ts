@@ -90,7 +90,8 @@ export class BillingRecordFormComponent implements OnInit {
     'description': '',
     'rate': '',
     'quantity': '',
-    'amount': ''
+    'amount': '',
+    'status': ''
   };
 
   validationMessages = {
@@ -107,6 +108,9 @@ export class BillingRecordFormComponent implements OnInit {
     },
     'amount': {
       'pattern': 'Must be a numeric value'
+    },
+    'status': {
+      'required': 'A payment status is required.'
     }
   };
 }

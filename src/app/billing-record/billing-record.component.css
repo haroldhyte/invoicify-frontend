@@ -1,0 +1,13 @@
+td {
+    text-align: center;
+}
+
+.billing-status {
+    color: red;
+    font-weight: bold;
+}
+
+.billing-status2 {
+    color: green;
+    font-weight: bold;
+}

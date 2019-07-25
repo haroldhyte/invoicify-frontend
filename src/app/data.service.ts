@@ -16,14 +16,9 @@ export class DataService {
 
     found = false;
 
-    header = new Headers();
-    options;
+    options = new RequestOptions({ withCredentials: true });
 
-    constructor (private http: Http) {
-      this.header.append('status', 'paid')
-      this.options = new RequestOptions({ withCredentials: true, headers: this.header });
-
-    }
+    constructor (private http: Http) {}
 
     getRecords(endpoint: string): Observable<any[]> {
         let apiUrl = this.baseUrl+endpoint;
@@ -55,11 +50,15 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    editRecordField(endpoint: string, field:string, id?:number): Observable<object> {
+    editRecordField(endpoint: string, field:string, value: string, id?:number): Observable<object> {
         let apiUrl = `${this.baseUrl}${endpoint}`;
         apiUrl = (id) ? apiUrl + "/" + id : apiUrl;
 
-        return this.http.put(apiUrl, field, this.options)
+        let header = new Headers();
+        header.append(field, value);
+        let optionsHeader = new RequestOptions({ withCredentials: true, headers: header });
+
+        return this.http.put(apiUrl, field, optionsHeader)
             .map(this.extractData)
             .catch(this.handleError);
     }

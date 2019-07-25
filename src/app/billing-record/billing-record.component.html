@@ -20,6 +20,7 @@
         <th>Created By</th>
         <th>Status</th>
         <th>Total</th>
+        <th>Due Date</th>
         <!-- <th>Admin</th> -->
       </tr>
     </thead>
@@ -34,6 +35,10 @@
         <ng-template #elseBlock><td class="billing-status2">{{billingRecord.status}} <img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=15 width=15></td></ng-template>
         <td>{{billingRecord.total}}</td>
         <td>{{billingRecord.dueDate}}</td>
+        <!-- <td class="text-center">
+          <a class="btn btn-primary" [routerLink]="['/billing-record/edit/', billingRecord.id]">Edit</a>&nbsp;
+          <button (click)="deleteBillingRecord(billingRecord.id)" class="btn btn-danger">Delete</button>
+        </td> -->
       </tr>
     </tbody>
   </table>

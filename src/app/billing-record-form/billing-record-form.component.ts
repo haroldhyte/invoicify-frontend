@@ -91,7 +91,8 @@ export class BillingRecordFormComponent implements OnInit {
     'rate': '',
     'quantity': '',
     'amount': '',
-    'status': ''
+    'status': '',
+    'dueDate' : ''
   };
 
   validationMessages = {
@@ -111,6 +112,10 @@ export class BillingRecordFormComponent implements OnInit {
     },
     'status': {
       'required': 'A payment status is required.'
+    },
+    'dueDate': {
+      'required': 'A due date is required.',
+      'pattern' : 'Must be a valid Date (MM/DD/YYYY)'
     }
   };
 }

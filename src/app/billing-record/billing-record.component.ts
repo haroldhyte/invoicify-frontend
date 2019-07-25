@@ -17,6 +17,8 @@ export class BillingRecordComponent implements OnInit {
   successMessage: string;
   billingRecords: any[];
 
+  myDate = Date.now();
+
   constructor (private dataService: DataService, public dialog: MatDialog) {}
 
   ngOnInit() { this.getBillingRecords(); }

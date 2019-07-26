@@ -31,15 +31,21 @@ export class BillingRecordComponent implements OnInit {
   payBillingRecord(billingRecordId) {
 
     let endpoint = "billing-record/status"
-
     endpoint += "/" + billingRecordId
 
-    this.dataService.editRecordField(endpoint, "status", "paid")
+    let date = new Date()
+    let status = "Paid " + date.toLocaleDateString('en-US')
+
+    //console.log(status) //DEBUG
+
+    this.dataService.editRecordField(endpoint, "status", status)
       .subscribe(
-        result => this.successMessage = "Record paid successfully",
+        result => {
+          this.successMessage = "Record paid successfully",
+          location.reload()
+        },
         error => this.errorMessage = <any>error
       );
 
-    location.reload()
   }
 }

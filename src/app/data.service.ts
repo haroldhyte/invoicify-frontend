@@ -56,6 +56,7 @@ export class DataService {
 
         let header = new Headers();
         header.append(field, value);
+
         let optionsHeader = new RequestOptions({ withCredentials: true, headers: header });
 
         return this.http.put(apiUrl, field, optionsHeader)

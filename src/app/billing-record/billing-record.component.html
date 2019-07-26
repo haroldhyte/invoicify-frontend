@@ -6,7 +6,18 @@
 
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-  <h2>Billing Records</h2>
+  <!--Start of the Error JS dialog-->
+  <div id="message" visibility="hidden">
+    <div style="padding: 5px;">
+      <div id="inner-message" class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p>You have unpaid records</p>
+      </div>
+    </div>
+  </div>
+  <!--End of the Error JS dialog-->
+
+<h2>Billing Records</h2>
 
   <a class="btn btn-primary" routerLink="/billing-record/add">Add Billing Record</a>
 

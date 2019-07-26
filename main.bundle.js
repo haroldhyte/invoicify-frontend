@@ -436,7 +436,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "td {\r\n    text-align: center;\r\n}\r\n\r\n.billing-status {\r\n    color: red;\r\n    font-weight: bold;\r\n}\r\n\r\n.billing-status2 {\r\n    color: green;\r\n    font-weight: bold;\r\n}\r\n", ""]);
+exports.push([module.i, ".alert {\r\n  padding: 20px;\r\n  background-color: #f44336;\r\n  color: white;\r\n}\r\n\r\n.closebtn {\r\n  margin-left: 15px;\r\n  color: white;\r\n  font-weight: bold;\r\n  float: right;\r\n  font-size: 22px;\r\n  line-height: 20px;\r\n  cursor: pointer;\r\n  transition: 0.3s;\r\n}\r\n\r\n.closebtn:hover {\r\n  color: black;\r\n}\r\n\r\nth, td {\r\n  text-align: center;\r\n}\r\n\r\n.billing-status {\r\n    color: red;\r\n    font-weight: bold;\r\n}\r\n\r\n.billing-status2 {\r\n    color: green;\r\n    font-weight: bold;\r\n}\r\n", ""]);
 
 // exports
 
@@ -449,7 +449,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/billing-record/billing-record.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Billing Records</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <h2>Billing Records</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/billing-record/add\">Add Billing Record</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Description</th>\r\n        <th>Client</th>\r\n        <th>Type</th>\r\n        <th>Created By</th>\r\n        <th>Status</th>\r\n        <th>Total</th>\r\n        <th>Due Date</th>\r\n        <!-- <th>Admin</th> -->\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let billingRecord of billingRecords\">\r\n        <td>{{billingRecord.id}}</td>\r\n        <td>{{billingRecord.description}}</td>\r\n        <td>{{billingRecord.client.name}}</td>\r\n        <td>{{(billingRecord.rate && billingRecord.quantity) ? \"Rate Based\" : \"Flat Fee\"}}</td>\r\n        <td>{{billingRecord.createdBy.username}}</td>\r\n        <td class=\"billing-status\" *ngIf=\"billingRecord.status == 'unpaid'; else elseBlock\" >{{billingRecord.status}} <img src=\"http://findicons.com/files/icons/1681/siena/128/clock_blue.png\" height=15 width=15></td>\r\n        <ng-template #elseBlock><td class=\"billing-status2\">{{billingRecord.status}} <img src=\"http://findicons.com/files/icons/573/must_have/48/check.png\" height=15 width=15></td></ng-template>\r\n        <td>{{billingRecord.total}}</td>\r\n        <td>{{billingRecord.dueDate  | date:\"MM/dd/yy\"}}</td>\r\n        <!-- <td class=\"text-center\">\r\n          <a class=\"btn btn-primary\" [routerLink]=\"['/billing-record/edit/', billingRecord.id]\">Edit</a>&nbsp;\r\n          <button (click)=\"deleteBillingRecord(billingRecord.id)\" class=\"btn btn-danger\">Delete</button>\r\n        </td> -->\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Billing Records</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <!--Start of the Error JS dialog-->\r\n  <div id=\"message\" visibility=\"hidden\">\r\n    <div style=\"padding: 5px;\">\r\n      <div id=\"inner-message\" class=\"alert alert-error\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n        <p>You have unpaid records</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!--End of the Error JS dialog-->\r\n\r\n<h2>Billing Records</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/billing-record/add\">Add Billing Record</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Description</th>\r\n        <th class=\"col-sm-2\">Client</th>\r\n        <th class=\"col-sm-2\">Type</th>\r\n        <th>Created By</th>\r\n        <th class=\"col-sm-2\">Status</th>\r\n        <th>Total</th>\r\n        <th>Due Date</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let billingRecord of billingRecords\">\r\n        <td>{{billingRecord.id}}</td>\r\n        <td>{{billingRecord.description}}</td>\r\n        <td>{{billingRecord.client.name}}</td>\r\n        <td>{{(billingRecord.rate && billingRecord.quantity) ? \"Rate Based\" : \"Flat Fee\"}}</td>\r\n        <td>{{billingRecord.createdBy.username}}</td>\r\n        <td class=\"billing-status\" *ngIf=\"billingRecord.status == 'unpaid'; else elseBlock\" >{{billingRecord.status}} <img src=\"http://findicons.com/files/icons/1681/siena/128/clock_blue.png\" height=15 width=15></td>\r\n        <ng-template #elseBlock><td class=\"billing-status2\">{{billingRecord.status}} <img src=\"http://findicons.com/files/icons/573/must_have/48/check.png\" height=15 width=15></td></ng-template>\r\n        <td>{{billingRecord.total}}</td>\r\n        <td>{{billingRecord.dueDate  | date:\"MM/dd/yy\"}}</td>\r\n        <td class=\"text-center\">\r\n          <button (click)=\"payBillingRecord(billingRecord.id)\" class=\"btn btn-success\">Pay</button>\r\n          <!--\r\n          <a class=\"btn btn-primary\" [routerLink]=\"['/billing-record/edit/', billingRecord.id]\">Edit</a>&nbsp;\r\n          <button (click)=\"deleteBillingRecord(billingRecord.id)\" class=\"btn btn-danger\">Delete</button>\r\n          -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -485,6 +485,19 @@ var BillingRecordComponent = (function () {
         var _this = this;
         this.dataService.getRecords("billing-record")
             .subscribe(function (results) { return _this.billingRecords = results; }, function (error) { return _this.errorMessage = error; });
+    };
+    BillingRecordComponent.prototype.payBillingRecord = function (billingRecordId) {
+        var _this = this;
+        var endpoint = "billing-record/status";
+        endpoint += "/" + billingRecordId;
+        var date = new Date();
+        var status = "Paid " + date.toLocaleDateString('en-US');
+        //console.log(status) //DEBUG
+        this.dataService.editRecordField(endpoint, "status", status)
+            .subscribe(function (result) {
+            _this.successMessage = "Record paid successfully",
+                location.reload();
+        }, function (error) { return _this.errorMessage = error; });
     };
     return BillingRecordComponent;
 }());
@@ -800,6 +813,16 @@ var DataService = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
+    DataService.prototype.editRecordField = function (endpoint, field, value, id) {
+        var apiUrl = "" + this.baseUrl + endpoint;
+        apiUrl = (id) ? apiUrl + "/" + id : apiUrl;
+        var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        header.append(field, value);
+        var optionsHeader = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* RequestOptions */]({ withCredentials: true, headers: header });
+        return this.http.put(apiUrl, field, optionsHeader)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
     DataService.prototype.addRecord = function (endpoint, record) {
         var apiUrl = "" + this.baseUrl + endpoint;
         return this.http.post(apiUrl, record, this.options)
@@ -824,7 +847,7 @@ var DataService = (function () {
             }
         }
         else {
-            if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Response */]) {
+            if (error instanceof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Response */]) {
                 if (error.status === 0) {
                     errMsg = "Error connecting to API";
                 }
@@ -840,7 +863,7 @@ var DataService = (function () {
 }());
 DataService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* Http */]) === "function" && _a || Object])
 ], DataService);
 
 var _a;

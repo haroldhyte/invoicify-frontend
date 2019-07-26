@@ -5,40 +5,16 @@
   </ol>
 
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+  
+  <div id="message">
+      <div style="padding: 5px;">
+        <div id="inner-message" class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            You have unpaid records
+       </div>
+      </div>
+    </div>
 
-  <!--Start of the Error JS dialog-->
-  <style>
-    .alert {
-      padding: 20px;
-      background-color: #f44336;
-      color: white;
-    }
-    
-    .closebtn {
-      margin-left: 15px;
-      color: white;
-      font-weight: bold;
-      float: right;
-      font-size: 22px;
-      line-height: 20px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    
-    .closebtn:hover {
-      color: black;
-    }
-    </style>
-
-<div id="message">
-              <div style="padding: 5px;">
-                <div id="inner-message" class="alert alert-error">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    You have unpaid records
-               </div>
-              </div>
-            </div>
-<!--End of the Error JS dialog-->
 
 <h2>Billing Records</h2>
 
@@ -65,14 +41,11 @@
         <td>{{billingRecord.client.name}}</td>
         <td>{{(billingRecord.rate && billingRecord.quantity) ? "Rate Based" : "Flat Fee"}}</td>
         <td>{{billingRecord.createdBy.username}}</td>
-        <td>{{billingRecord.status}}</td>
+        <td class="{{ COLOR_STATUS[billingRecord.status] }}">{{billingRecord.status}}</td>
         <td>{{billingRecord.total}}</td>
-        <td>{{billingRecord.dueDate}}</td>
-        <!-- <td class="text-center">
-          <a class="btn btn-primary" [routerLink]="['/billing-record/edit/', billingRecord.id]">Edit</a>&nbsp;
-          <button (click)="deleteBillingRecord(billingRecord.id)" class="btn btn-danger">Delete</button>
-        </td> -->
-      </tr>
+        <td class="{{ compareDate(billingRecord.dueDate) }}">{{billingRecord.dueDate}}</td>
+
+        </tr>
     </tbody>
   </table>
 </section>

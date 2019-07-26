@@ -6,7 +6,18 @@
 
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-  <h2>Billing Records</h2>
+  <!--Start of the Error JS dialog-->
+  <div id="message" visibility="hidden">
+    <div style="padding: 5px;">
+      <div id="inner-message" class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p>You have unpaid records</p>
+      </div>
+    </div>
+  </div>
+  <!--End of the Error JS dialog-->
+
+<h2>Billing Records</h2>
 
   <a class="btn btn-primary" routerLink="/billing-record/add">Add Billing Record</a>
 
@@ -15,13 +26,13 @@
       <tr>
         <th>ID</th>
         <th>Description</th>
-        <th>Client</th>
-        <th>Type</th>
+        <th class="col-sm-2">Client</th>
+        <th class="col-sm-2">Type</th>
         <th>Created By</th>
-        <th>Status</th>
+        <th class="col-sm-2">Status</th>
         <th>Total</th>
         <th>Due Date</th>
-        <!-- <th>Admin</th> -->
+        <th>Admin</th>
       </tr>
     </thead>
     <tbody>
@@ -31,17 +42,22 @@
         <td>{{billingRecord.client.name}}</td>
         <td>{{(billingRecord.rate && billingRecord.quantity) ? "Rate Based" : "Flat Fee"}}</td>
         <td>{{billingRecord.createdBy.username}}</td>
-        <td class="billing-status" *ngIf="billingRecord.status == 'unpaid'; else elseBlock" >Unpaid <img src="http://findicons.com/files/icons/1681/siena/128/clock_blue.png" height=15 width=15></td>
+        <td class="billing-status" *ngIf="billingRecord.status === 'unpaid'; else elseBlock">
+            {{billingRecord.status}}
+            <img src="http://findicons.com/files/icons/1681/siena/128/clock_blue.png" height=15 width=15>
+        </td>
         <ng-template #elseBlock>
-          <td class="billing-status2">Paid 
+          <td class="billing-status2">
+            {{billingRecord.status}}
             <div>{{myDate | date:'short'}}</div>
-          </td></ng-template>
+             <img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=15 width=15>
+        </td>
+      </ng-template>
         <td>{{billingRecord.total}}</td>
         <td>{{billingRecord.dueDate  | date:"MM/dd/yy"}}</td>
-        <!-- <td class="text-center">
-          <a class="btn btn-primary" [routerLink]="['/billing-record/edit/', billingRecord.id]">Edit</a>&nbsp;
-          <button (click)="deleteBillingRecord(billingRecord.id)" class="btn btn-danger">Delete</button>
-        </td> -->
+        <td class="text-center" >
+            <button *ngIf="billingRecord.status === 'unpaid'" (click)="payBillingRecord(billingRecord.id)" class="btn btn-success">Pay</button>
+        </td>
       </tr>
     </tbody>
   </table>

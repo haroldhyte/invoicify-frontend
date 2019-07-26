@@ -42,16 +42,19 @@
         <td>{{billingRecord.client.name}}</td>
         <td>{{(billingRecord.rate && billingRecord.quantity) ? "Rate Based" : "Flat Fee"}}</td>
         <td>{{billingRecord.createdBy.username}}</td>
-        <td class="billing-status" *ngIf="billingRecord.status == 'unpaid'; else elseBlock" >{{billingRecord.status}} <img src="http://findicons.com/files/icons/1681/siena/128/clock_blue.png" height=15 width=15></td>
-        <ng-template #elseBlock><td class="billing-status2">{{billingRecord.status}} <img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=15 width=15></td></ng-template>
+        <td class="billing-status" *ngIf="billingRecord.status === 'unpaid'; else elseBlock">
+            {{billingRecord.status}}
+            <img src="http://findicons.com/files/icons/1681/siena/128/clock_blue.png" height=15 width=15>
+        </td>
+        <ng-template #elseBlock>
+          <td class="billing-status2">
+            {{billingRecord.status}} <img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=15 width=15>
+        </td>
+      </ng-template>
         <td>{{billingRecord.total}}</td>
         <td>{{billingRecord.dueDate  | date:"MM/dd/yy"}}</td>
-        <td class="text-center">
-          <button (click)="payBillingRecord(billingRecord.id)" class="btn btn-success">Pay</button>
-          <!--
-          <a class="btn btn-primary" [routerLink]="['/billing-record/edit/', billingRecord.id]">Edit</a>&nbsp;
-          <button (click)="deleteBillingRecord(billingRecord.id)" class="btn btn-danger">Delete</button>
-          -->
+        <td class="text-center" >
+            <button *ngIf="billingRecord.status === 'unpaid'" (click)="payBillingRecord(billingRecord.id)" class="btn btn-success">Pay</button>
         </td>
       </tr>
     </tbody>

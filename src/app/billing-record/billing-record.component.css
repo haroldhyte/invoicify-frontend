@@ -18,8 +18,8 @@
 .closebtn:hover {
   color: black;
 
-td {
-    text-align: center;
+th, td {
+  text-align: center;
 }
 
 .billing-status {

@@ -28,4 +28,20 @@ export class BillingRecordComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
+  payBillingRecord(billingRecordId) {
+
+    let endpoint = "billing-record/status"
+
+    endpoint += "/" + billingRecordId
+
+    this.dataService.editRecordField(endpoint, "status", "paid")
+      .subscribe(
+        result => {
+          this.successMessage = "Record paid successfully",
+          location.reload()
+        },
+        error => this.errorMessage = <any>error
+      );
+
+  }
 }

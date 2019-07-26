@@ -36,10 +36,12 @@ export class BillingRecordComponent implements OnInit {
 
     this.dataService.editRecordField(endpoint, "status", "paid")
       .subscribe(
-        result => this.successMessage = "Record paid successfully",
+        result => {
+          this.successMessage = "Record paid successfully",
+          location.reload()
+        },
         error => this.errorMessage = <any>error
       );
 
-    location.reload()
   }
 }

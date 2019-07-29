@@ -60,10 +60,10 @@ export class BillingRecordComponent implements OnInit {
     const now = new Date(Date.now())
     const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
    
-    if( dueDate < now) {
+    if( dueDate < now && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['overdue']
     }
-    if(twoDaysFromNow >= dueDate || dueDate <= now) {
+    if(twoDaysFromNow >= dueDate || dueDate <= now && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['warning']
     }
   } 

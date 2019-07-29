@@ -91,6 +91,7 @@ export class BillingRecordFormComponent implements OnInit {
     'rate': '',
     'quantity': '',
     'amount': '',
+    'status': '',
     'dueDate' : ''
   };
 
@@ -108,6 +109,9 @@ export class BillingRecordFormComponent implements OnInit {
     },
     'amount': {
       'pattern': 'Must be a numeric value'
+    },
+    'status': {
+      'required': 'A payment status is required.'
     },
     'dueDate': {
       'required': 'A due date is required.',

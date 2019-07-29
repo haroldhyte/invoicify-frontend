@@ -1,11 +1,3 @@
-.overdue {
-    color: red
-}
-
-.billwarning {
-    color: yellow
-}
-
 .alert {
   padding: 20px;
   background-color: #f44336;
@@ -25,4 +17,18 @@
 
 .closebtn:hover {
   color: black;
+}
+
+td {
+    text-align: center;
+}
+
+.billing-status {
+    color: red;
+    font-weight: bold;
+}
+
+.billing-status2 {
+    color: green;
+    font-weight: bold;
 }

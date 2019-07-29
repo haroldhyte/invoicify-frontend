@@ -43,9 +43,29 @@ export class BillingRecordComponent implements OnInit {
         result => {
           this.successMessage = "Record paid successfully",
           location.reload()
-        },
+      },
         error => this.errorMessage = <any>error
       );
 
+  }
+
+  deleteBillingRecord(billingRecordId) {
+    let endpoint = "billing-record"
+    endpoint += "/" + billingRecordId
+
+    let dialogRef = this.dialog.open(DeleteConfirmComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.dataService.deleteRecord(endpoint)
+        .subscribe(
+          response => {
+            this.successMessage = "Record deleted successfully"
+            this.getBillingRecords()
+          },
+          error => {this.errorMessage = <any>error}
+        )
+      }   
+    })
   }
 }

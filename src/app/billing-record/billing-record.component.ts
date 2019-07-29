@@ -17,6 +17,13 @@ export class BillingRecordComponent implements OnInit {
   successMessage: string;
   billingRecords: any[];
 
+  COLOR_STATUS = {
+    overdue: 'alert',
+    warning: 'alertyellow',
+    alert: 'class_style_here',
+    unpaid: 'alert'
+  };
+
   constructor (private dataService: DataService, public dialog: MatDialog) {}
 
   ngOnInit() { this.getBillingRecords(); }
@@ -48,4 +55,16 @@ export class BillingRecordComponent implements OnInit {
       );
 
   }
+  compareDate(d) {
+    const dueDate = new Date(d);
+    const now = new Date(Date.now())
+    const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
+   
+    if( dueDate < now) {
+      return this.COLOR_STATUS['overdue']
+    }
+    if(twoDaysFromNow >= dueDate || dueDate <= now) {
+      return this.COLOR_STATUS['warning']
+    }
+  } 
 }

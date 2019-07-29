@@ -25,13 +25,13 @@
       <tr>
         <th>ID</th>
         <th>Description</th>
-        <th>Client</th>
-        <th>Type</th>
+        <th class="col-sm-2">Client</th>
+        <th class="col-sm-2">Type</th>
         <th>Created By</th>
-        <th>Status</th>
+        <th class="col-sm-2">Status</th>
         <th>Total</th>
         <th>Due Date</th>
-        <!-- <th>Admin</th> -->
+        <th>Admin</th>
       </tr>
     </thead>
     <tbody>
@@ -43,9 +43,11 @@
         <td>{{billingRecord.createdBy.username}}</td>
         <td class="{{ COLOR_STATUS[billingRecord.status] }}">{{billingRecord.status}}</td>
         <td>{{billingRecord.total}}</td>
-        <td class="{{ compareDate(billingRecord.dueDate) }}">{{billingRecord.dueDate}}</td>
-
-        </tr>
+        <td class="{{ compareDate(billingRecord.dueDate) }}">{{billingRecord.dueDate  | date:"MM/dd/yy"}}</td>
+        <td class="text-center" >
+            <button *ngIf="billingRecord.status === 'unpaid'" (click)="payBillingRecord(billingRecord.id)" class="btn btn-success">Pay</button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </section>

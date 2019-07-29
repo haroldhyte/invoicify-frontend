@@ -447,7 +447,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".alert {\r\n  padding: 20px;\r\n  background-color: #f44336;\r\n  color: white;\r\n}\r\n\r\n.closebtn {\r\n  margin-left: 15px;\r\n  color: white;\r\n  font-weight: bold;\r\n  float: right;\r\n  font-size: 22px;\r\n  line-height: 20px;\r\n  cursor: pointer;\r\n  transition: 0.3s;\r\n}\r\n\r\n.closebtn:hover {\r\n  color: black;\r\n}\r\n\r\nth, td {\r\n  text-align: center;\r\n}\r\n\r\n.billing-status {\r\n    color: red;\r\n    font-weight: bold;\r\n}\r\n\r\n.billing-status2 {\r\n    color: green;\r\n    font-weight: bold;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".alert {\r\n  padding: 20px;\r\n  background-color: #f44336;\r\n  color: white;\r\n}\r\n\r\n.closebtn {\r\n  margin-left: 15px;\r\n  color: white;\r\n  font-weight: bold;\r\n  float: right;\r\n  font-size: 22px;\r\n  line-height: 20px;\r\n  cursor: pointer;\r\n  transition: 0.3s;\r\n}\r\n\r\n.closebtn:hover {\r\n  color: black;\r\n}\r\n\r\nth, td {\r\n  text-align: center;\r\n}\r\n\r\n.billing-status {\r\n    color: red;\r\n    font-weight: bold;\r\n}\r\n\r\n.billing-status2 {\r\n    color: green;\r\n    font-weight: bold;\r\n}\r\n\r\n.overdue {\r\n  color: red\r\n}\r\n\r\n.billwarning {\r\n  color: yellow\r\n}\r\n\r\n.alertyellow {\r\n  padding: 20px;\r\n  background-color: #ffcc00;\r\n  color: white;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -460,7 +460,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/billing-record/billing-record.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Billing Records</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n  \r\n  <div id=\"message\">\r\n      <div style=\"padding: 5px;\">\r\n        <div id=\"inner-message\" class=\"alert alert-error\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            You have unpaid records\r\n       </div>\r\n      </div>\r\n    </div>\r\n\r\n\r\n<h2>Billing Records</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/billing-record/add\">Add Billing Record</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Description</th>\r\n        <th class=\"col-sm-2\">Client</th>\r\n        <th class=\"col-sm-2\">Type</th>\r\n        <th>Created By</th>\r\n        <th class=\"col-sm-2\">Status</th>\r\n        <th>Total</th>\r\n        <th>Due Date</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let billingRecord of billingRecords\">\r\n        <td>{{billingRecord.id}}</td>\r\n        <td>{{billingRecord.description}}</td>\r\n        <td>{{billingRecord.client.name}}</td>\r\n        <td>{{(billingRecord.rate && billingRecord.quantity) ? \"Rate Based\" : \"Flat Fee\"}}</td>\r\n        <td>{{billingRecord.createdBy.username}}</td>\r\n        <td class=\"{{ COLOR_STATUS[billingRecord.status] }}\">{{billingRecord.status}}</td>\r\n        <td>{{billingRecord.total}}</td>\r\n        <td class=\"{{ compareDate(billingRecord.dueDate) }}\">{{billingRecord.dueDate  | date:\"MM/dd/yy\"}}</td>\r\n        <td class=\"text-center\" >\r\n            <button *ngIf=\"billingRecord.status === 'Unpaid'\" (click)=\"payBillingRecord(billingRecord.id)\" class=\"btn btn-success\">Pay</button>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Billing Records</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n  \r\n  <div id=\"message\">\r\n      <div style=\"padding: 5px;\">\r\n        <div id=\"inner-message\" class=\"alert alert-error\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            You have unpaid records\r\n       </div>\r\n      </div>\r\n    </div>\r\n\r\n\r\n<h2>Billing Records</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/billing-record/add\">Add Billing Record</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Description</th>\r\n        <th class=\"col-sm-2\">Client</th>\r\n        <th class=\"col-sm-2\">Type</th>\r\n        <th>Created By</th>\r\n        <th class=\"col-sm-2\">Status</th>\r\n        <th>Total</th>\r\n        <th>Due Date</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let billingRecord of billingRecords\">\r\n        <td>{{billingRecord.id}}</td>\r\n        <td>{{billingRecord.description}}</td>\r\n        <td>{{billingRecord.client.name}}</td>\r\n        <td>{{(billingRecord.rate && billingRecord.quantity) ? \"Rate Based\" : \"Flat Fee\"}}</td>\r\n        <td>{{billingRecord.createdBy.username}}</td>\r\n        <td class=\"{{ COLOR_STATUS[billingRecord.status] }}\">{{billingRecord.status}}</td>\r\n        <td>{{billingRecord.total}}</td>\r\n        <td class=\"{{ compareDateAndStatus(billingRecord) }}\">{{billingRecord.dueDate  | date:\"MM/dd/yy\"}}</td>\r\n        <td class=\"text-center\" >\r\n            <button *ngIf=\"billingRecord.status === 'Unpaid'\" (click)=\"payBillingRecord(billingRecord.id)\" class=\"btn btn-success\">Pay</button>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -491,8 +491,8 @@ var BillingRecordComponent = (function () {
         this.dataService = dataService;
         this.dialog = dialog;
         this.COLOR_STATUS = {
-            overdue: 'overdue',
-            warning: 'billwarning',
+            overdue: 'alert',
+            warning: 'alertyellow',
             alert: 'class_style_here',
             unpaid: 'alert'
         };
@@ -522,6 +522,17 @@ var BillingRecordComponent = (function () {
             _this.successMessage = "Record paid successfully",
                 _this.getBillingRecords();
         }, function (error) { return _this.errorMessage = error; });
+    };
+    BillingRecordComponent.prototype.compareDateAndStatus = function (BillingRecord) {
+        var dueDate = new Date(BillingRecord.dueDate);
+        var now = new Date(Date.now());
+        var twoDaysFromNow = new Date(new Date().getTime() + (2 * 24 * 60 * 60 * 1000));
+        if ((dueDate < now) && BillingRecord.status == "Unpaid") {
+            return this.COLOR_STATUS['overdue'];
+        }
+        if ((twoDaysFromNow >= dueDate || dueDate <= now) && BillingRecord.status == "Unpaid") {
+            return this.COLOR_STATUS['warning'];
+        }
     };
     return BillingRecordComponent;
 }());

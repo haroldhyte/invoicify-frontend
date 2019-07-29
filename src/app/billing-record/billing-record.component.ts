@@ -36,8 +36,6 @@ export class BillingRecordComponent implements OnInit {
     let date = new Date()
     let status = "Paid " + date.toLocaleDateString('en-US')
 
-    //console.log(status) //DEBUG
-
     this.dataService.editRecordField(endpoint, "status", status)
       .subscribe(
         result => {

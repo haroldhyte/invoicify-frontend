@@ -29,8 +29,8 @@
           <td>{{invoice.company.name}}</td>
           <td>{{invoice.lineItems.length}}</td>
           <td>{{invoice.createdBy.username}}</td>
-          <td>{{invoice.createdOn}}</td>
-          <td>{{invoice.dueDate}}</td>
+          <td>{{invoice.createdOn | date:"MM/dd/yy"}}</td>
+          <td>{{invoice.dueDate | date:"MM/dd/yy"}}</td>
         </tr>
       </tbody>
     </table>

@@ -6,6 +6,7 @@ import { DataService } from '../data.service'
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
+
 @Component({
   selector: 'app-billing-record',
   templateUrl: './billing-record.component.html',
@@ -13,11 +14,17 @@ import { fadeInAnimation } from '../animations/fade-in.animation';
   animations: [fadeInAnimation]
 })
 export class BillingRecordComponent implements OnInit {
-
   errorMessage: string;
   successMessage: string;
   billingRecords: any[];
  
+
+  COLOR_STATUS = {
+    overdue: 'overdue',
+    warning: 'billwarning',
+    alert: 'class_style_here',
+    unpaid: 'alert'
+  };
 
   constructor (private dataService: DataService, public dialog: MatDialog) {}
 
@@ -46,5 +53,33 @@ export class BillingRecordComponent implements OnInit {
     return this.billingRecords.sort((a,b)=> b[category].localeCompare(a[category]));
     } 
 
+  compareDate(d) {
+    const date = new Date(d);
+    const now = new Date(Date.now())
+    if( date < now) {
+      return this.COLOR_STATUS['overdue']
+    }
+  }
+
+  payBillingRecord(billingRecordId) {
+
+    let endpoint = "billing-record/status"
+    endpoint += "/" + billingRecordId
+
+    let date = new Date()
+    let status = "Paid " + date.toLocaleDateString('en-US')
+
+    //console.log(status) //DEBUG
+
+    this.dataService.editRecordField(endpoint, "status", status)
+      .subscribe(
+        result => {
+          this.successMessage = "Record paid successfully",
+          this.getBillingRecords()
+        },
+        error => this.errorMessage = <any>error
+      );
+
+  }
 }
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpHeaders } from '@angular/common/http'
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -10,9 +11,8 @@ import 'rxjs/add/observable/empty';
 
 @Injectable()
 export class DataService {
-
     private baseUrl = 'https://allyiance-invoicify.herokuapp.com/api/'
-    //private baseURL = 'https://localhost:8080/api/'
+    //private baseUrl = 'http://localhost:8080/api/'
 
     found = false;
 
@@ -46,6 +46,20 @@ export class DataService {
         let apiUrl = `${this.baseUrl}${endpoint}`;
         apiUrl = (id) ? apiUrl + "/" + id : apiUrl;
         return this.http.put(apiUrl, record, this.options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    editRecordField(endpoint: string, field:string, value: string, id?:number): Observable<object> {
+        let apiUrl = `${this.baseUrl}${endpoint}`;
+        apiUrl = (id) ? apiUrl + "/" + id : apiUrl;
+
+        let header = new Headers();
+        header.append(field, value);
+
+        let optionsHeader = new RequestOptions({ withCredentials: true, headers: header });
+
+        return this.http.put(apiUrl, field, optionsHeader)
             .map(this.extractData)
             .catch(this.handleError);
     }

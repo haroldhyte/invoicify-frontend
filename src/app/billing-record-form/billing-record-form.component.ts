@@ -59,7 +59,7 @@ export class BillingRecordFormComponent implements OnInit {
     this.dataService.addRecord(endpoint, billingRecordForm.value)
       .subscribe(
         result => { this.successMessage = "Record added successfully"
-          if(result.status === "paid") {
+          if(result.status === "Paid") {
             billingRecord.payBillingRecord(result.id)
           }
         },

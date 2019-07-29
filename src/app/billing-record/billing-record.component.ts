@@ -55,8 +55,8 @@ export class BillingRecordComponent implements OnInit {
       );
 
   }
-  compareDate(d) {
-    const dueDate = new Date(d);
+  compareDateAndStatus(BillingRecord) {
+    const dueDate = new Date(BillingRecord.dueDate);
     const now = new Date(Date.now())
     const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
    

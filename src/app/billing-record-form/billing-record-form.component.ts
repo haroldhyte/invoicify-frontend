@@ -5,6 +5,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { BillingRecordComponent } from '../billing-record/billing-record.component';
+
 @Component({
   selector: 'app-billing-record-form',
   templateUrl: './billing-record-form.component.html',
@@ -23,7 +26,9 @@ export class BillingRecordFormComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(){
@@ -49,11 +54,18 @@ export class BillingRecordFormComponent implements OnInit {
 
     delete(billingRecordForm.value.client)
 
+    let billingRecord = new BillingRecordComponent(this.dataService, this.dialog);
+
     this.dataService.addRecord(endpoint, billingRecordForm.value)
       .subscribe(
-        result => this.successMessage = "Record added successfully",
+        result => { this.successMessage = "Record added successfully"
+          if(result.status === "Paid") {
+            billingRecord.payBillingRecord(result.id)
+          }
+        },
         error => this.errorMessage = <any>error
       );
+
     this.billingRecordForm.reset()
   }
 

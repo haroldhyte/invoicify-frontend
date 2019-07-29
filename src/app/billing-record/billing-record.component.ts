@@ -57,7 +57,7 @@ export class BillingRecordComponent implements OnInit {
       .subscribe(
         result => {
           this.successMessage = "Record paid successfully",
-          location.reload()
+          this.getBillingRecords()
         },
         error => this.errorMessage = <any>error
       );

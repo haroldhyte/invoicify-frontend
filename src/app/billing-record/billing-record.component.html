@@ -55,6 +55,7 @@
         <td>{{billingRecord.dueDate  | date:"MM/dd/yy"}}</td>
         <td class="text-center" >
             <button *ngIf="billingRecord.status === 'unpaid'" (click)="payBillingRecord(billingRecord.id)" class="btn btn-success">Pay</button>
+            <button (click)= "deleteBillingRecord(billingRecord.id)"  class = "btn btn-success"> Delete </button>
         </td>
       </tr>
     </tbody>

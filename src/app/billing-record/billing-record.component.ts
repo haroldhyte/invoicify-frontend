@@ -48,4 +48,17 @@ export class BillingRecordComponent implements OnInit {
       );
 
   }
+
+  deleteBillingRecord(billingRecordId) {
+    let endpoint = "billing-record/" + billingRecordId
+
+    this.dataService.deleteRecord(endpoint)
+      .subscribe(
+        result => {
+          this.successMessage = "Record deleted successfully"
+        },
+        error => this.errorMessage = <any>error
+      );
+  location.reload()
+  }
 }

@@ -5,6 +5,7 @@ import { DataService } from '../data.service'
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
+
 @Component({
   selector: 'app-billing-record',
   templateUrl: './billing-record.component.html',
@@ -12,7 +13,6 @@ import { fadeInAnimation } from '../animations/fade-in.animation';
   animations: [fadeInAnimation]
 })
 export class BillingRecordComponent implements OnInit {
-
   errorMessage: string;
   successMessage: string;
   billingRecords: any[];
@@ -35,6 +35,14 @@ export class BillingRecordComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
+  compareDate(d) {
+    const date = new Date(d);
+    const now = new Date(Date.now())
+    if( date < now) {
+      return this.COLOR_STATUS['overdue']
+    }
+  }
+
   payBillingRecord(billingRecordId) {
 
     let endpoint = "billing-record/status"
@@ -49,7 +57,7 @@ export class BillingRecordComponent implements OnInit {
       .subscribe(
         result => {
           this.successMessage = "Record paid successfully",
-          location.reload()
+          this.getBillingRecords()
         },
         error => this.errorMessage = <any>error
       );

@@ -52,7 +52,7 @@
         </td>
       </ng-template>
         <td>{{billingRecord.total}}</td>
-        <td>{{billingRecord.dueDate  | date:"MM/dd/yy"}}</td>
+        <td class="{{ compareDate(billingRecord.dueDate) }}">{{billingRecord.dueDate  | date:"MM/dd/yy"}}</td>
         <td class="text-center" >
             <button *ngIf="billingRecord.status === 'unpaid'" (click)="payBillingRecord(billingRecord.id)" class="btn btn-success">Pay</button>
         </td>

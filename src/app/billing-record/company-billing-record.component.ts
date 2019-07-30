@@ -18,6 +18,7 @@ export class CompanyBillingRecordComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   billingRecords: any[];
+  reverse: boolean;
 
   COLOR_STATUS = {
     overdue: 'alert',
@@ -45,9 +46,45 @@ export class CompanyBillingRecordComponent implements OnInit {
     //let companyId = this.clientAuth.companyAccess();
     this.dataService.getRecord("billing-record/company", this.companyId)
       .subscribe(
-        results => this.billingRecords = results,
+        results => this.billingRecords = results.sort((a,b)=> b.status.localeCompare(a.status)),
         error =>  this.errorMessage = <any>error);
   }
+
+  sortBy(category){
+      if(this.reverse=== false){
+        this.reverse = true;
+        if( category=== 'id' || category === 'total'){
+          return this.billingRecords.sort((a,b)=> b[category] - a[category])
+        }
+        if (category === 'client'){
+          return this.billingRecords.sort((a,b)=> a.client.name.localeCompare(b.client.name))
+        }
+        if(category === 'rate'){
+          return this.billingRecords.sort((a,b)=> a.rate.localeCompare(b.rate))
+        }
+        if( category === 'createdBy'){
+          return this.billingRecords.sort((a,b)=> a.createdBy.username.localeCompare(b.createdBy.username))
+        }
+        return this.billingRecords.sort((a,b)=> b[category].localeCompare(a[category]));
+
+      } else{
+        this.reverse= false;
+        if( category=== 'id' || category === 'total'){
+          return this.billingRecords.sort((a,b)=> a[category] - b[category])
+        }
+        if (category === 'client'){
+          return this.billingRecords.sort((a,b)=> b.client.name.localeCompare(a.client.name))
+        }
+        if(category === 'rate'){
+          return this.billingRecords.sort((a,b)=> b.rate.localeCompare(a.rate))
+        }
+        if( category === 'createdBy'){
+          return this.billingRecords.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
+        }
+        return this.billingRecords.sort((a,b)=> a[category].localeCompare(b[category]));
+      }
+    }
+
 
   compareDate(d) {
     const date = new Date(d);
@@ -75,6 +112,26 @@ export class CompanyBillingRecordComponent implements OnInit {
         },
         error => this.errorMessage = <any>error
       );
+  }
+
+  deleteBillingRecord(billingRecordId) {
+    let endpoint = "billing-record"
+    endpoint += "/" + billingRecordId
+
+    let dialogRef = this.dialog.open(DeleteConfirmComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.dataService.deleteRecord(endpoint)
+        .subscribe(
+          response => {
+            this.successMessage = "Record deleted successfully"
+            this.getBillingRecords()
+          },
+          error => {this.errorMessage = <any>error}
+        )
+      }
+    })
   }
 
   compareDateAndStatus(BillingRecord) {

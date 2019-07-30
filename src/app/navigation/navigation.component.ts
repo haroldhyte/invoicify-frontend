@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { ClientAuthGuard } from '../role-authentication/auth-guard-client.service';
+import { AllyAuthGuard } from '../role-authentication/auth-guard-ally.service';
+import { AdminAuthGuard } from '../role-authentication/auth-guard-admin.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -15,7 +18,8 @@ export class NavigationComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
 
-  constructor(private authService: AuthService, public router: Router) { }
+  constructor(private authService: AuthService, public router: Router,
+    private clientAuth: ClientAuthGuard, private allyAuth: AllyAuthGuard) { }
 
   ngOnInit() {
     this.refreshUser();
@@ -26,7 +30,7 @@ export class NavigationComponent implements OnInit {
       success=> {
         this.refreshUser();
         this.router.navigate(["home"])
-      } 
+      }
     );
   }
 

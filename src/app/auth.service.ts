@@ -35,4 +35,9 @@ export class AuthService {
     let auth_user = JSON.parse(localStorage.getItem("auth_user"));
     return auth_user.type;
   }
+
+  public getUserCompany(): string {
+    let auth_user = JSON.parse(localStorage.getItem("auth_user"));
+    return auth_user.company;
+  }
 }

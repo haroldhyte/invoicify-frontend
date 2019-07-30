@@ -24,9 +24,9 @@
         </form>
         <div class="navbar-text navbar-right" *ngIf="authService.isAuthenticated()">
             Signed in as: <a [routerLink]="['/user/edit/', auth_user.id]">{{auth_user.username}}</a>
-            <button type="submit" class="btn btn-primary" (click)="logout()">Logout</button> 
+            <button type="submit" class="btn btn-primary" (click)="logout()">Logout</button>
         </div>
-  
+
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li routerLinkActive="active">
@@ -35,7 +35,10 @@
                 <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
                     <a routerLink="/company">Companies</a>
                 </li>
-                <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
+                <li *ngIf="clientAuth.isThisRole()" routerLinkActive="active">
+                    <a routerLink="/company-billing-record">Billing Records</a>
+                </li>
+                <li *ngIf="allyAuth.isThisRoleOrHigher()" routerLinkActive="active">
                     <a routerLink="/billing-record">Billing Records</a>
                 </li>
                 <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">

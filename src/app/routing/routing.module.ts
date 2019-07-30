@@ -12,6 +12,7 @@ import { HomeComponent }   from '../home/home.component';
 import { UserComponent } from '../user/user.component';
 import { UserFormComponent } from '../user-form/user-form.component';
 import { BillingRecordComponent } from '../billing-record/billing-record.component';
+import { CompanyBillingRecordComponent } from '../billing-record/company-billing-record.component';
 import { BillingRecordFormComponent } from '../billing-record-form/billing-record-form.component';
 import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
 import { InvoiceComponent } from '../invoice/invoice.component';
@@ -28,9 +29,8 @@ const routes: Routes = [
   { path: 'billing-record',  component: BillingRecordComponent, canActivate: [AuthGuard] },
   { path: 'billing-record/add', component: BillingRecordFormComponent, canActivate: [AllyAuthGuard] },
   { path: 'invoice/add', component: InvoiceFormComponent, canActivate: [AllyAuthGuard] },
-  { path: 'invoice', component: InvoiceComponent, canActivate: [AuthGuard] }//,
-
-//  { path: 'company-billing-records', component: CompanyFormComponent, canActivate: [ClientAuthGuard] }
+  { path: 'invoice', component: InvoiceComponent, canActivate: [AuthGuard] },
+  { path: 'company-billing-record', component: CompanyBillingRecordComponent, canActivate: [ClientAuthGuard] }
 ];
 
 @NgModule({

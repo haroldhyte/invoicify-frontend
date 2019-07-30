@@ -20,6 +20,7 @@ export class UserFormComponent implements OnInit {
 
   successMessage: string;
   errorMessage: string;
+  companies: any[];
 
   user: object;
 
@@ -37,6 +38,7 @@ export class UserFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getCompanies();
     this.route.params
       .subscribe((params: Params) => {
         (+params['id']) ? this.getRecordForEdit() : null;
@@ -73,6 +75,13 @@ export class UserFormComponent implements OnInit {
       .subscribe(
         data => this.onValueChanged(data)
       );
+  }
+
+  getCompanies() {
+    this.dataService.getRecords("company")
+      .subscribe(
+        companies => this.companies = companies,
+        error =>  this.errorMessage = <any>error);
   }
 
   onValueChanged(data?: any) {

@@ -94,7 +94,8 @@ export class UserFormComponent implements OnInit {
 
   formErrors = {
     'username': '',
-    'password': ''
+    'password': '',
+    'type': ''
   };
 
   validationMessages = {
@@ -106,6 +107,10 @@ export class UserFormComponent implements OnInit {
     'password': {
       'pattern': 'Password must be at least one upper case letter, at least one lower case English letter, at least one digit, at least one special character, and 8 characters in length',
       'minlength': ''
+    },
+    'type': {
+      'required': 'User type is required',
+      'pattern': 'Type must be one of the following: Admin, Ally, or Client'
     }
   };
 

@@ -16,6 +16,7 @@ export class BillingRecordComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   billingRecords: any[];
+  hasUnpaidBills: boolean;
 
   COLOR_STATUS = {
     overdue: 'alert',
@@ -24,14 +25,30 @@ export class BillingRecordComponent implements OnInit {
     unpaid: 'alert'
   };
 
-  constructor (private dataService: DataService, public dialog: MatDialog) {}
+  constructor (private dataService: DataService, public dialog: MatDialog) {
+    // this.billingRecords = [];
+    // this.hasUnpaidBills = false;
+  }
 
-  ngOnInit() { this.getBillingRecords(); }
-
+  ngOnInit() { 
+    this.getBillingRecords();
+  }
+  checkUnpaidBills() {
+    for(let i = 0; i < this.billingRecords.length; i++) {
+      if (this.billingRecords[i].status == 'Unpaid') {
+        this.hasUnpaidBills = true;
+        return
+      }
+    }
+  }
+  
   getBillingRecords() {
     this.dataService.getRecords("billing-record")
       .subscribe(
-        results => this.billingRecords = results,
+        results => {
+          this.billingRecords = results
+          this.checkUnpaidBills();
+        },
         error =>  this.errorMessage = <any>error);
   }
 
@@ -86,5 +103,6 @@ export class BillingRecordComponent implements OnInit {
     if((twoDaysFromNow >= dueDate || dueDate <= now ) && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['warning']
     }
-  } 
+  }
+
 }

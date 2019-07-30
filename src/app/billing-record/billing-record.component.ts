@@ -73,7 +73,7 @@ export class BillingRecordComponent implements OnInit {
       }   
     })
   }
-}
+
 
   compareDateAndStatus(BillingRecord) {
     const dueDate = new Date(BillingRecord.dueDate);

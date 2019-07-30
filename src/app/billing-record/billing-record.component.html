@@ -32,6 +32,7 @@
         <th>Total</th>
         <th>Due Date</th>
         <th>Admin</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -46,6 +47,9 @@
         <td class="{{ compareDateAndStatus(billingRecord) }}">{{billingRecord.dueDate  | date:"MM/dd/yy"}}</td>
         <td class="text-center" >
             <button *ngIf="billingRecord.status === 'Unpaid'" (click)="payBillingRecord(billingRecord.id)" class="btn btn-success">Pay</button>
+        </td>
+        <td>
+          <button (click)="deleteBillingRecord(billingRecord.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
     </tbody>

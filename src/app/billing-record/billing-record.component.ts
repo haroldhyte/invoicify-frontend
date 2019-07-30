@@ -5,6 +5,7 @@ import { DataService } from '../data.service'
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
+
 @Component({
   selector: 'app-billing-record',
   templateUrl: './billing-record.component.html',
@@ -12,10 +13,16 @@ import { fadeInAnimation } from '../animations/fade-in.animation';
   animations: [fadeInAnimation]
 })
 export class BillingRecordComponent implements OnInit {
-
   errorMessage: string;
   successMessage: string;
   billingRecords: any[];
+
+  COLOR_STATUS = {
+    overdue: 'alert',
+    warning: 'alertyellow',
+    alert: 'class_style_here',
+    unpaid: 'alert'
+  };
 
   constructor (private dataService: DataService, public dialog: MatDialog) {}
 
@@ -26,6 +33,14 @@ export class BillingRecordComponent implements OnInit {
       .subscribe(
         results => this.billingRecords = results,
         error =>  this.errorMessage = <any>error);
+  }
+
+  compareDate(d) {
+    const date = new Date(d);
+    const now = new Date(Date.now())
+    if( date < now) {
+      return this.COLOR_STATUS['overdue']
+    }
   }
 
   payBillingRecord(billingRecordId) {
@@ -40,8 +55,8 @@ export class BillingRecordComponent implements OnInit {
       .subscribe(
         result => {
           this.successMessage = "Record paid successfully",
-          location.reload()
-      },
+          this.getBillingRecords()
+        },
         error => this.errorMessage = <any>error
       );
 
@@ -66,4 +81,18 @@ export class BillingRecordComponent implements OnInit {
       }   
     })
   }
+}
+
+  compareDateAndStatus(BillingRecord) {
+    const dueDate = new Date(BillingRecord.dueDate);
+    const now = new Date(Date.now())
+    const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
+   
+    if( (dueDate < now ) && BillingRecord.status == "Unpaid") {
+      return this.COLOR_STATUS['overdue']
+    }
+    if((twoDaysFromNow >= dueDate || dueDate <= now ) && BillingRecord.status == "Unpaid") {
+      return this.COLOR_STATUS['warning']
+    }
+  } 
 }

@@ -25,7 +25,7 @@ export class ClientAuthGuard implements CanActivate {
     this.auth.getUserRole() == "admin");
   }
 
-  companyAccess(): string {
+  companyAccess() {
     return this.auth.getUserCompany();
   }
 

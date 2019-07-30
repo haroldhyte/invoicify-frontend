@@ -39,7 +39,7 @@ export class AuthService {
     } else return "unauthenticated";
   }
 
-  public getUserCompany(): string {
+  public getUserCompany() {
     let auth_user = JSON.parse(localStorage.getItem("auth_user"));
     return auth_user.company;
   }

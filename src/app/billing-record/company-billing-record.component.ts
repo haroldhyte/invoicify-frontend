@@ -30,7 +30,7 @@ export class CompanyBillingRecordComponent implements OnInit {
 
   constructor (private dataService: DataService, public dialog: MatDialog,
     private clientAuth: ClientAuthGuard) {
-      this.companyId = this.getCompany().id);
+      this.companyId = this.getCompany().id;
       console.log(this.clientAuth.companyAccess());
       console.log(this.companyId);
     }
@@ -38,7 +38,7 @@ export class CompanyBillingRecordComponent implements OnInit {
   ngOnInit() { this.getBillingRecords(); }
 
   getCompany() {
-    return parseInt(this.clientAuth.companyAccess());
+    return this.clientAuth.companyAccess();
   }
 
   getBillingRecords() {

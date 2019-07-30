@@ -86,5 +86,5 @@ export class BillingRecordComponent implements OnInit {
     if((twoDaysFromNow >= dueDate || dueDate <= now ) && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['warning']
     }
-  } 
+  }
 }

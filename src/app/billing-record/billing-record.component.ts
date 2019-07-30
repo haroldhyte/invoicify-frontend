@@ -35,14 +35,6 @@ export class BillingRecordComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
-  compareDate(d) {
-    const date = new Date(d);
-    const now = new Date(Date.now())
-    if( date < now) {
-      return this.COLOR_STATUS['overdue']
-    }
-  }
-
   payBillingRecord(billingRecordId) {
 
     let endpoint = "billing-record/status"

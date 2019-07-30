@@ -104,8 +104,4 @@ export class BillingRecordComponent implements OnInit {
       return this.COLOR_STATUS['warning']
     }
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 44cc8147db9ed1d8a520e9f78691037f170e3a16
 }

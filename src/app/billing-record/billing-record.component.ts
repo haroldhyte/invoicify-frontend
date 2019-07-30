@@ -21,8 +21,8 @@ export class BillingRecordComponent implements OnInit {
  
 
   COLOR_STATUS = {
-    overdue: 'overdue',
-    warning: 'billwarning',
+    overdue: 'alert',
+    warning: 'alertyellow',
     alert: 'class_style_here',
     unpaid: 'alert'
   };
@@ -38,45 +38,41 @@ export class BillingRecordComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
-  sortBy(category){
+sortBy(category){
     if(this.reverse=== false){
       this.reverse = true;
       if( category=== 'id' || category === 'total'){
-       return this.billingRecords.sort((a,b)=> b[category] - a[category])
-      } 
+        return this.billingRecords.sort((a,b)=> b[category] - a[category])
+      }
       if (category === 'client'){
-       return this.billingRecords.sort((a,b)=> a.client.name.localeCompare(b.client.name))
-     }
+        return this.billingRecords.sort((a,b)=> a.client.name.localeCompare(b.client.name))
+      }
       if(category === 'rate'){
         return this.billingRecords.sort((a,b)=> a.rate.localeCompare(b.rate))
-     }
+      }
       if( category === 'createdBy'){
         return this.billingRecords.sort((a,b)=> a.createdBy.username.localeCompare(b.createdBy.username))
       }
       return this.billingRecords.sort((a,b)=> b[category].localeCompare(a[category]));
-      
-    }
-    
-    else{
+
+    } else{
       this.reverse= false;
       if( category=== 'id' || category === 'total'){
         return this.billingRecords.sort((a,b)=> a[category] - b[category])
-       } 
-       if (category === 'client'){
+      }
+      if (category === 'client'){
         return this.billingRecords.sort((a,b)=> b.client.name.localeCompare(a.client.name))
       }
-       if(category === 'rate'){
-         return this.billingRecords.sort((a,b)=> b.rate.localeCompare(a.rate))
+      if(category === 'rate'){
+        return this.billingRecords.sort((a,b)=> b.rate.localeCompare(a.rate))
       }
-       if( category === 'createdBy'){
-         return this.billingRecords.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
-       }
-       return this.billingRecords.sort((a,b)=> a[category].localeCompare(b[category]));
-       }
+      if( category === 'createdBy'){
+        return this.billingRecords.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
       }
-      
-      
-    
+      return this.billingRecords.sort((a,b)=> a[category].localeCompare(b[category]));
+    }
+  }
+
 
   compareDate(d) {
     const date = new Date(d);
@@ -94,8 +90,6 @@ export class BillingRecordComponent implements OnInit {
     let date = new Date()
     let status = "Paid " + date.toLocaleDateString('en-US')
 
-    //console.log(status) //DEBUG
-
     this.dataService.editRecordField(endpoint, "status", status)
       .subscribe(
         result => {
@@ -106,5 +100,39 @@ export class BillingRecordComponent implements OnInit {
       );
 
   }
+
+  deleteBillingRecord(billingRecordId) {
+    let endpoint = "billing-record"
+    endpoint += "/" + billingRecordId
+
+    let dialogRef = this.dialog.open(DeleteConfirmComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.dataService.deleteRecord(endpoint)
+        .subscribe(
+          response => {
+            this.successMessage = "Record deleted successfully"
+            this.getBillingRecords()
+          },
+          error => {this.errorMessage = <any>error}
+        )
+      }   
+    })
+  }
+
+
+  compareDateAndStatus(BillingRecord) {
+    const dueDate = new Date(BillingRecord.dueDate);
+    const now = new Date(Date.now())
+    const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
+   
+    if( (dueDate < now ) && BillingRecord.status == "Unpaid") {
+      return this.COLOR_STATUS['overdue']
+    }
+    if((twoDaysFromNow >= dueDate || dueDate <= now ) && BillingRecord.status == "Unpaid") {
+      return this.COLOR_STATUS['warning']
+    }
+  } 
 }
 

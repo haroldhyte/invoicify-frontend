@@ -33,3 +33,17 @@ th, td {
     font-weight: bold;
 }
 
+.overdue {
+  color: red
+}
+
+.billwarning {
+  color: yellow
+}
+
+.alertyellow {
+  padding: 20px;
+  background-color: #ffcc00;
+  color: white;
+}
+

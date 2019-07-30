@@ -23,36 +23,29 @@
   <table >
       <tr>
         <th>
-          <button (click)="sortBy('id')">ID</button>
-          <span class="sortorder" [hidden]="!propertyName === 'id'" [ngClass]="{reverse: reverse}"></span>
+          <p (click)="sortBy('id')" > ID</p>
+        </th>
+
+        <th>
+          <p (click)="sortBy('description')">Description</p>
         </th>
         <th>
-          <button (click)="sortBy('description')">Description</button>
-          <span class="sortorder" [hidden]="!propertyName === 'description'" [ngClass]="{reverse: reverse}"></span>
+          <p (click) = "sortBy('client')">Client Name</p>
         </th>
         <th>
-          <button (click) = "sortBy('client')">Client Name</button>
-          <span class="sortorder" [hidden]="!propertyName === 'client'" [ngClass]="{reverse: reverse}"></span>
+            <p >Rate</p>
         </th>
         <th>
-            <button (click)="sortBy('rate')">Rate</button>
-            <span class="sortorder" [hidden]="!propertyName === 'rate'" [ngClass]="{reverse: reverse}"></span>
+            <p (click)="sortBy('createdBy')">Created By</p>
         </th>
         <th>
-            <button (click)="sortBy('createdBy')">Created By</button>
-            <span class="sortorder" [hidden]="!propertyName === 'createdBy'" [ngClass]="{reverse: reverse}"></span>
+            <p (click)="sortBy('status')">Status</p>
         </th>
         <th>
-            <button (click)="sortBy('status')">Status</button>
-            <span class="sortorder" [hidden]="!propertyName === 'status'" [ngClass]="{reverse: reverse}"></span>
+            <p (click)="sortBy('total')">Total</p>
         </th>
         <th>
-            <button (click)="sortBy('total')">Total</button>
-            <span class="sortorder" [hidden]="!propertyName === 'total'" [ngClass]="{reverse: reverse}"></span>
-        </th>
-        <th>
-            <button (click)="sortBy('dueDate')">Due Date</button>
-            <span class="sortorder" [hidden]="!propertyName === 'dueDate'" [ngClass]="{reverse: reverse}"></span>
+            <p (click)="sortBy('dueDate')">Due Date</p>
         </th>
         <th>Admin</th>
       </tr>

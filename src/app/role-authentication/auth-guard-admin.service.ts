@@ -15,4 +15,12 @@ export class AdminAuthGuard implements CanActivate {
     return this.auth.getUserRole() == "admin";
   }
 
+  isThisRole(): boolean {
+    return this.auth.getUserRole() == "admin";
+  }
+
+  isThisRoleOrHigher(): boolean {
+    return this.isThisRole();
+  }
+
 }

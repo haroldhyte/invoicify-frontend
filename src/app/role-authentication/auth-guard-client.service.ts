@@ -15,4 +15,18 @@ export class ClientAuthGuard implements CanActivate {
     return this.auth.getUserRole() == "client";
   }
 
+  isThisRole(): boolean {
+    return this.auth.getUserRole() == "client";
+  }
+
+  isThisRoleOrHigher(): boolean {
+    return (this.isThisRole() ||
+    this.auth.getUserRole() == "ally" ||
+    this.auth.getUserRole() == "admin");
+  }
+
+  companyAccess(): string {
+    return this.auth.getUserCompany();
+  }
+
 }

@@ -15,4 +15,13 @@ export class AllyAuthGuard implements CanActivate {
     return this.auth.getUserRole() == "ally";
   }
 
+  isThisRole(): boolean {
+    return this.auth.getUserRole() == "ally";
+  }
+
+  isThisRoleOrHigher(): boolean {
+    return (this.isThisRole() ||
+    this.auth.getUserRole() == "admin");
+  }
+
 }

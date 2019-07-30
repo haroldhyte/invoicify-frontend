@@ -12,7 +12,7 @@ export class AllyAuthGuard implements CanActivate {
       this.router.navigate(['home']);
       return false;
     }
-    return this.auth.getUserRole() == "ally";
+    return this.isThisRoleOrHigher();
   }
 
   isThisRole(): boolean {

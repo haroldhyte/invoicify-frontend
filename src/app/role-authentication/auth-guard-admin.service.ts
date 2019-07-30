@@ -12,7 +12,7 @@ export class AdminAuthGuard implements CanActivate {
       this.router.navigate(['home']);
       return false;
     }
-    return this.auth.getUserRole() == "admin";
+    return this.isThisRoleOrHigher();
   }
 
   isThisRole(): boolean {

@@ -12,7 +12,7 @@ export class ClientAuthGuard implements CanActivate {
       this.router.navigate(['home']);
       return false;
     }
-    return this.auth.getUserRole() == "client";
+    return this.isThisRole();
   }
 
   isThisRole(): boolean {

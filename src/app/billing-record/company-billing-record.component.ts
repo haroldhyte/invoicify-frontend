@@ -26,14 +26,24 @@ export class CompanyBillingRecordComponent implements OnInit {
     unpaid: 'alert'
   };
 
+  companyId = -1;
+
   constructor (private dataService: DataService, public dialog: MatDialog,
-    private clientAuth: ClientAuthGuard) {}
+    private clientAuth: ClientAuthGuard) {
+      this.companyId = this.getCompany().id);
+      console.log(this.clientAuth.companyAccess());
+      console.log(this.companyId);
+    }
 
   ngOnInit() { this.getBillingRecords(); }
 
+  getCompany() {
+    return parseInt(this.clientAuth.companyAccess());
+  }
+
   getBillingRecords() {
-    let companyId = this.clientAuth.companyAccess();
-    this.dataService.getRecord("billing-record/company", parseInt(companyId))
+    //let companyId = this.clientAuth.companyAccess();
+    this.dataService.getRecord("billing-record/company", this.companyId)
       .subscribe(
         results => this.billingRecords = results,
         error =>  this.errorMessage = <any>error);

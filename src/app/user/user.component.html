@@ -16,6 +16,7 @@
         <th>ID</th>
         <th>username</th>
         <th>Type</th>
+        <th>Company Name</th>
         <th>Admin</th>
       </tr>
     </thead>
@@ -24,6 +25,7 @@
         <td>{{user.id}}</td>
         <td>{{user.username}}</td>
         <td>{{user.type}}</td>
+        <td>{{user.company?.name}}</td>
         <td class="text-center">
           <a class="btn btn-primary" [routerLink]="['/user/edit/', user.id]">Edit</a>&nbsp;
           <!-- <button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button> -->

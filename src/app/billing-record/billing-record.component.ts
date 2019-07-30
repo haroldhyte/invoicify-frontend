@@ -51,8 +51,6 @@ export class BillingRecordComponent implements OnInit {
     let date = new Date()
     let status = "Paid " + date.toLocaleDateString('en-US')
 
-    //console.log(status) //DEBUG
-
     this.dataService.editRecordField(endpoint, "status", status)
       .subscribe(
         result => {
@@ -63,6 +61,28 @@ export class BillingRecordComponent implements OnInit {
       );
 
   }
+
+  deleteBillingRecord(billingRecordId) {
+    let endpoint = "billing-record"
+    endpoint += "/" + billingRecordId
+
+    let dialogRef = this.dialog.open(DeleteConfirmComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.dataService.deleteRecord(endpoint)
+        .subscribe(
+          response => {
+            this.successMessage = "Record deleted successfully"
+            this.getBillingRecords()
+          },
+          error => {this.errorMessage = <any>error}
+        )
+      }   
+    })
+  }
+}
+
   compareDateAndStatus(BillingRecord) {
     const dueDate = new Date(BillingRecord.dueDate);
     const now = new Date(Date.now())

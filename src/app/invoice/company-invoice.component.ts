@@ -39,7 +39,7 @@ export class CompanyInvoiceComponent implements OnInit {
   sortBy(category){
       if(this.reverse=== false){
         this.reverse = true;
-        if( category=== 'id' || category === 'total'){
+        if( category === 'id' || category === 'total' || category === 'lineItems' ){
           return this.invoices.sort((a,b)=> b[category] - a[category])
         }
         if (category === 'client'){
@@ -55,7 +55,7 @@ export class CompanyInvoiceComponent implements OnInit {
 
       } else{
         this.reverse= false;
-        if( category=== 'id' || category === 'total'){
+        if( category === 'id' || category === 'total' || category === 'lineItems' ){
           return this.invoices.sort((a,b)=> a[category] - b[category])
         }
         if (category === 'client'){

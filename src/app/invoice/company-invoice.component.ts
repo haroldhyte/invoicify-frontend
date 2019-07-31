@@ -32,14 +32,14 @@ export class CompanyInvoiceComponent implements OnInit {
   getInvoices() {
     this.dataService.getRecord("invoice/company", this.companyId)
       .subscribe(
-        results => this.invoices = results,
+        results => this.invoices = results.sort((a,b)=> b.createdOn.localeCompare(a.createdOn)),
         error =>  this.errorMessage = <any>error);
   }
 
   sortBy(category){
       if(this.reverse=== false){
         this.reverse = true;
-        if( category === 'id' || category === 'total' || category === 'lineItems' ){
+        if( category === 'id' || category === 'total' || category === "lineItems.length" ){
           return this.invoices.sort((a,b)=> b[category] - a[category])
         }
         if (category === 'client'){
@@ -55,7 +55,7 @@ export class CompanyInvoiceComponent implements OnInit {
 
       } else{
         this.reverse= false;
-        if( category === 'id' || category === 'total' || category === 'lineItems' ){
+        if( category === 'id' || category === 'total' || category === "lineItems.length" ){
           return this.invoices.sort((a,b)=> a[category] - b[category])
         }
         if (category === 'client'){

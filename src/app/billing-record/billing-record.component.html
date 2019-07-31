@@ -33,14 +33,14 @@
         <th (click)="sortBy('dueDate')">Due Date</th>
         <th>Actions</th>
       </tr>
-      </thead>
+    </thead>
       <tr *ngFor="let billingRecord of billingRecords ">
         <td>{{billingRecord.id}}</td>
         <td>{{billingRecord.description}}</td>
         <td>{{billingRecord.client.name}}</td>
         <td>{{(billingRecord.rate && billingRecord.quantity) ? "Rate Based" : "Flat Fee"}}</td>
         <td>{{billingRecord.createdBy.username}}</td>
-        <td >{{billingRecord.status}}</td>
+        <td>{{billingRecord.status}}</td>
         <td>{{billingRecord.total}}</td>
         <td class="{{ compareDateAndStatus(billingRecord) }}">{{billingRecord.dueDate  | date:"MM/dd/yy"}}</td>
         <td class="text-center" >

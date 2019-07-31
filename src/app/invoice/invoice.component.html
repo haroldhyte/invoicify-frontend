@@ -8,7 +8,7 @@
 
     <h2>Manage Invoices</h2>
 
-    <a class="btn btn-primary" routerLink="/invoice/add">Add Invoice</a>
+    <a *ngIf="companyId == -1" class="btn btn-primary" routerLink="/invoice/add">Add Invoice</a>
 
     <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
       <thead>

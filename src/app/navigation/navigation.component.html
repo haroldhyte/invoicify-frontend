@@ -32,19 +32,22 @@
                 <li routerLinkActive="active">
                     <a routerLink="/home">Home</a>
                 </li>
-                <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
+                <li *ngIf="allyAuth.isThisRoleOrHigher()" routerLinkActive="active">
                     <a routerLink="/company">Companies</a>
                 </li>
                 <li *ngIf="clientAuth.isThisRole()" routerLinkActive="active">
-                    <a routerLink="/company-billing-record">Billing Records</a>
+                    <a routerLink="/company-billing-record">Company Billing Records</a>
                 </li>
                 <li *ngIf="allyAuth.isThisRoleOrHigher()" routerLinkActive="active">
                     <a routerLink="/billing-record">Billing Records</a>
                 </li>
-                <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
-                        <a routerLink="/invoice">Invoices</a>
-                    </li>
-                <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
+                <li *ngIf="clientAuth.isThisRole()" routerLinkActive="active">
+                    <a routerLink="/company-invoice">Company Invoices</a>
+                </li>
+                <li *ngIf="allyAuth.isThisRoleOrHigher()" routerLinkActive="active">
+                    <a routerLink="/invoice">Invoices</a>
+                </li>
+                <li *ngIf="adminAuth.isThisRoleOrHigher()" routerLinkActive="active">
                     <a routerLink="/user">Users</a>
                 </li>
             </ul>

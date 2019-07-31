@@ -7,7 +7,6 @@ import { ClientAuthGuard } from '../role-authentication/auth-guard-client.servic
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
-
 @Component({
   selector: 'app-billing-record',
   templateUrl: './billing-record.component.html',
@@ -32,8 +31,6 @@ export class CompanyBillingRecordComponent implements OnInit {
   constructor (private dataService: DataService, public dialog: MatDialog,
     private clientAuth: ClientAuthGuard) {
       this.companyId = this.getCompany().id;
-      console.log(this.clientAuth.companyAccess());
-      console.log(this.companyId);
     }
 
   ngOnInit() { this.getBillingRecords(); }
@@ -43,7 +40,6 @@ export class CompanyBillingRecordComponent implements OnInit {
   }
 
   getBillingRecords() {
-    //let companyId = this.clientAuth.companyAccess();
     this.dataService.getRecord("billing-record/company", this.companyId)
       .subscribe(
         results => this.billingRecords = results.sort((a,b)=> b.status.localeCompare(a.status)),

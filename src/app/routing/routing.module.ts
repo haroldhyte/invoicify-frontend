@@ -16,6 +16,7 @@ import { CompanyBillingRecordComponent } from '../billing-record/company-billing
 import { BillingRecordFormComponent } from '../billing-record-form/billing-record-form.component';
 import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
 import { InvoiceComponent } from '../invoice/invoice.component';
+import { CompanyInvoiceComponent } from '../invoice/company-invoice.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,14 +24,15 @@ const routes: Routes = [
   { path: 'company',  component: CompanyComponent, canActivate: [AllyAuthGuard] },
   { path: 'company/edit/:id', component: CompanyFormComponent, canActivate: [AllyAuthGuard] },
   { path: 'company/add', component: CompanyFormComponent, canActivate: [AllyAuthGuard] },
-  { path: 'user',  component: UserComponent, canActivate: [AllyAuthGuard] },
+  { path: 'user',  component: UserComponent, canActivate: [AdminAuthGuard] },
   { path: 'user/edit/:id', component: UserFormComponent, canActivate: [AdminAuthGuard] },
   { path: 'user/add', component: UserFormComponent, canActivate: [AdminAuthGuard] },
-  { path: 'billing-record',  component: BillingRecordComponent, canActivate: [AuthGuard] },
+  { path: 'billing-record',  component: BillingRecordComponent, canActivate: [AllyAuthGuard] },
   { path: 'billing-record/add', component: BillingRecordFormComponent, canActivate: [AllyAuthGuard] },
   { path: 'invoice/add', component: InvoiceFormComponent, canActivate: [AllyAuthGuard] },
   { path: 'invoice', component: InvoiceComponent, canActivate: [AllyAuthGuard] },
-  { path: 'company-billing-record', component: CompanyBillingRecordComponent, canActivate: [ClientAuthGuard] }
+  { path: 'company-billing-record', component: CompanyBillingRecordComponent, canActivate: [ClientAuthGuard] },
+  { path: 'company-invoice', component: CompanyInvoiceComponent, canActivate: [ClientAuthGuard] }
 ];
 
 @NgModule({

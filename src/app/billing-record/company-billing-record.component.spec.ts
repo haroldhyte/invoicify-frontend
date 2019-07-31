@@ -8,7 +8,7 @@ describe('CompanyBillingRecordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BillingRecordComponent ]
+      declarations: [ CompanyBillingRecordComponent ]
     })
     .compileComponents();
   }));

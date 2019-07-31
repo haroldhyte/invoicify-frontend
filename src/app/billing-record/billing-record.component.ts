@@ -18,9 +18,8 @@ export class BillingRecordComponent implements OnInit {
   successMessage: string;
   billingRecords: any[];
   hasUnpaidBills: boolean;
-  companiesWithBills: any[] = [];
   mySetCompaniesWithBills: Set<string> = new Set();
-  //arrayCompaniesWithBills = Array.from(this.companiesWithBills.values());
+  mySetCompaniesWithBillsYellow: Set<string> = new Set();
   reverse: boolean;
  
 
@@ -41,7 +40,6 @@ export class BillingRecordComponent implements OnInit {
   }
   checkUnpaidBills() {
     const now = new Date(Date.now())
-    const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
     for(let i = 0; i < this.billingRecords.length; i++) {
       const dueDate = new Date(this.billingRecords[i].dueDate)
       if (this.billingRecords[i].status == 'Unpaid' && now > dueDate) {
@@ -50,6 +48,16 @@ export class BillingRecordComponent implements OnInit {
     }
   }
 
+  checkUpcomingBills() {
+    const now = new Date(Date.now())
+    const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
+    for(let i = 0; i < this.billingRecords.length; i++) {
+      const dueDate = new Date(this.billingRecords[i].dueDate)
+      if((dueDate >= now && dueDate <= twoDaysFromNow) && this.billingRecords[i].status == "Unpaid"){
+         this.mySetCompaniesWithBillsYellow.add(this.billingRecords[i].client.name)
+      }
+    }
+  }
   
   getBillingRecords() {
     this.dataService.getRecords("billing-record")
@@ -57,6 +65,7 @@ export class BillingRecordComponent implements OnInit {
         results => {
           this.billingRecords = results
           this.checkUnpaidBills();
+          this.checkUpcomingBills();
         },
         error =>  this.errorMessage = <any>error);
   }
@@ -153,7 +162,7 @@ sortBy(category){
     if( (dueDate < now ) && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['overdue']
     }
-    if((twoDaysFromNow >= dueDate || dueDate <= now ) && BillingRecord.status == "Unpaid") {
+    if(twoDaysFromNow >= dueDate && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['warning']
     }
   }

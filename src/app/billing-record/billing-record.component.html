@@ -17,6 +17,17 @@
        </div>
       </div>
     </div>
+    <div id="messageTwo" style="display: inline-flexbox;">
+        <div style="padding: 0px;">
+          <div id="inner-message" class="alertyellow alert-error">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <p style="padding-bottom: 10px;">Companies that have record due dates approaching: </p>
+              <div *ngFor="let companyNameYellow of mySetCompaniesWithBillsYellow"> 
+                <span>{{companyNameYellow}}</span>
+              </div>
+         </div>
+        </div>
+      </div>
 
 
 <h2>Billing Records</h2>

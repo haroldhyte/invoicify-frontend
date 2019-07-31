@@ -6,14 +6,28 @@
 
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
   
-  <div id="message">
-      <div style="padding: 5px;">
+  <div id="message" style="display: inline-flexbox;">
+      <div>
         <div id="inner-message" class="alert alert-error">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            You have unpaid records
+            <p style="padding-bottom: 1em;">Companies that have unpaid records: </p>
+            <div *ngFor="let companyName of mySetCompaniesWithBills"> 
+              <span>{{companyName}}</span>
+            </div>
        </div>
       </div>
     </div>
+    <div id="messageTwo" style="display: inline-flexbox;">
+        <div>
+          <div id="inner-message" class="alertyellow alert-error">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <p style="padding-bottom: 1em;">Companies that have record due dates approaching: </p>
+              <div *ngFor="let companyNameYellow of mySetCompaniesWithBillsYellow"> 
+                <span>{{companyNameYellow}}</span>
+              </div>
+         </div>
+        </div>
+      </div>
 
 
 <h2>Billing Records</h2>

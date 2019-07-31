@@ -10,7 +10,8 @@
             </button>
             <a routerLink="/home">
               <div class="navbar-form navbar-left">
-              <button class="btn btn-neutral" style="color: black;"><b>Invoicify by <span style="color: #50104A;">Ally</span></b></button>
+              <button style="background-color: #fff7f0; border-color: #fff7f0;" class="btn btn-neutral" style="color: black;">
+                <b>Invoicify by <span style="color: #5f285e;">Ally Financial</span></b></button>
                 <!--<img width="100" alt="Invoicify - HR" src="assets/images/ally_logo.png" />-->
               </div>
             </a>
@@ -26,7 +27,7 @@
             <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-success">Login</button>
         </form>
         <div class="navbar-form navbar-right" *ngIf="authService.isAuthenticated()">
-            <button type="submit" class="btn btn-primary" (click)="logout()"><b>{{auth_user.username}}</b> Logout</button>
+            <button style="background-color: #cb3974; border-color: #cb3974;" type="submit" class="btn btn-primary" (click)="logout()"><b>{{auth_user.username}}</b> Logout</button>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">

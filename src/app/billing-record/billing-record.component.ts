@@ -157,6 +157,5 @@ sortBy(category){
       return this.COLOR_STATUS['warning']
     }
   }
-
 }
 

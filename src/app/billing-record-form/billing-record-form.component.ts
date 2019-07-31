@@ -56,11 +56,8 @@ export class BillingRecordFormComponent implements OnInit {
 
     let billingRecord = new BillingRecordComponent(this.dataService, this.dialog);
 
-    console.log(billingRecordForm.value.dueDate)
     let date = new Date(billingRecordForm.value.dueDate + " 0:00:01")
-    console.log(date)
     billingRecordForm.value.dueDate = date.toLocaleDateString()
-    console.log(billingRecordForm.value.dueDate)
 
     this.dataService.addRecord(endpoint, billingRecordForm.value)
       .subscribe(

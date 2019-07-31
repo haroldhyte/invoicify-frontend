@@ -17,6 +17,9 @@ export class BillingRecordComponent implements OnInit {
   successMessage: string;
   billingRecords: any[];
   hasUnpaidBills: boolean;
+  companiesWithBills: any[] = [];
+  mySetCompaniesWithBills: Set<string> = new Set();
+  //arrayCompaniesWithBills = Array.from(this.companiesWithBills.values());
 
   COLOR_STATUS = {
     overdue: 'alert',
@@ -34,13 +37,16 @@ export class BillingRecordComponent implements OnInit {
     this.getBillingRecords();
   }
   checkUnpaidBills() {
+    const now = new Date(Date.now())
+    const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
     for(let i = 0; i < this.billingRecords.length; i++) {
-      if (this.billingRecords[i].status == 'Unpaid') {
-        this.hasUnpaidBills = true;
-        return
+      const dueDate = new Date(this.billingRecords[i].dueDate)
+      if (this.billingRecords[i].status == 'Unpaid' && now > dueDate) {
+         this.mySetCompaniesWithBills.add(this.billingRecords[i].client.name)
       }
     }
   }
+
   
   getBillingRecords() {
     this.dataService.getRecords("billing-record")

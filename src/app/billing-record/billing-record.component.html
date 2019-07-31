@@ -23,31 +23,14 @@
   <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
     <thead>
       <tr>
-        <th>
-          <p (click)="sortBy('id')" > ID</p>
-        </th>
-
-        <th>
-          <p (click)="sortBy('description')">Description</p>
-        </th>
-        <th>
-          <p (click) = "sortBy('client')">Client Name</p>
-        </th>
-        <th>
-            <p >Rate</p>
-        </th>
-        <th>
-            <p (click)="sortBy('createdBy')">Created By</p>
-        </th>
-        <th>
-            <p (click)="sortBy('status')">Status</p>
-        </th>
-        <th>
-            <p (click)="sortBy('total')">Total</p>
-        </th>
-        <th>
-            <p (click)="sortBy('dueDate')">Due Date</p>
-        </th>
+        <th (click)="sortBy('id')">ID</th>
+        <th (click)="sortBy('description')">Description</th>
+        <th (click)="sortBy('client')">Client</th>
+        <th>Rate</th>
+        <th (click)="sortBy('createdBy')">Created By</th>
+        <th (click)="sortBy('status')">Status</th>
+        <th (click)="sortBy('total')">Total</th>
+        <th (click)="sortBy('dueDate')">Due Date</th>
         <th>Actions</th>
       </tr>
       </thead>

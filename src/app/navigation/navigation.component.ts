@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
   successMessage: string;
 
   constructor(private authService: AuthService, public router: Router,
-    private clientAuth: ClientAuthGuard, private allyAuth: AllyAuthGuard) { }
+    private clientAuth: ClientAuthGuard, private allyAuth: AllyAuthGuard, private adminAuth: AdminAuthGuard) { }
 
   ngOnInit() {
     this.refreshUser();

@@ -20,16 +20,16 @@ import { InvoiceComponent } from '../invoice/invoice.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home',  component: HomeComponent },
-  { path: 'company',  component: CompanyComponent, canActivate: [AuthGuard] },
+  { path: 'company',  component: CompanyComponent, canActivate: [AllyAuthGuard] },
   { path: 'company/edit/:id', component: CompanyFormComponent, canActivate: [AllyAuthGuard] },
   { path: 'company/add', component: CompanyFormComponent, canActivate: [AllyAuthGuard] },
-  { path: 'user',  component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'user',  component: UserComponent, canActivate: [AllyAuthGuard] },
   { path: 'user/edit/:id', component: UserFormComponent, canActivate: [AdminAuthGuard] },
   { path: 'user/add', component: UserFormComponent, canActivate: [AdminAuthGuard] },
   { path: 'billing-record',  component: BillingRecordComponent, canActivate: [AuthGuard] },
   { path: 'billing-record/add', component: BillingRecordFormComponent, canActivate: [AllyAuthGuard] },
   { path: 'invoice/add', component: InvoiceFormComponent, canActivate: [AllyAuthGuard] },
-  { path: 'invoice', component: InvoiceComponent, canActivate: [AuthGuard] },
+  { path: 'invoice', component: InvoiceComponent, canActivate: [AllyAuthGuard] },
   { path: 'company-billing-record', component: CompanyBillingRecordComponent, canActivate: [ClientAuthGuard] }
 ];
 

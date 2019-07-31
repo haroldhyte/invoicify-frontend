@@ -40,10 +40,10 @@ export class BillingRecordComponent implements OnInit {
   }
   checkUnpaidBills() {
     const now = new Date(Date.now())
-    for(let i = 0; i < this.billingRecords.length; i++) {
-      const dueDate = new Date(this.billingRecords[i].dueDate)
-      if (this.billingRecords[i].status == 'Unpaid' && now > dueDate) {
-         this.mySetCompaniesWithBills.add(this.billingRecords[i].client.name)
+    for(var myBill in this.billingRecords) {
+      const dueDate = new Date(this.billingRecords[myBill].dueDate)
+      if (this.billingRecords[myBill].status == 'Unpaid' && now > dueDate) {
+         this.mySetCompaniesWithBills.add(this.billingRecords[myBill].client.name)
       }
     }
   }
@@ -51,10 +51,10 @@ export class BillingRecordComponent implements OnInit {
   checkUpcomingBills() {
     const now = new Date(Date.now())
     const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
-    for(let i = 0; i < this.billingRecords.length; i++) {
-      const dueDate = new Date(this.billingRecords[i].dueDate)
-      if((dueDate >= now && dueDate <= twoDaysFromNow) && this.billingRecords[i].status == "Unpaid"){
-         this.mySetCompaniesWithBillsYellow.add(this.billingRecords[i].client.name)
+    for(var myBill in this.billingRecords) {
+      const dueDate = new Date(this.billingRecords[myBill].dueDate)
+      if((dueDate >= now && dueDate <= twoDaysFromNow) && this.billingRecords[myBill].status == "Unpaid"){
+         this.mySetCompaniesWithBillsYellow.add(this.billingRecords[myBill].client.name)
       }
     }
   }

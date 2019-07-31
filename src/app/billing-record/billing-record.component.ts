@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
+
 import { DataService } from '../data.service'
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 import { fadeInAnimation } from '../animations/fade-in.animation';
@@ -20,6 +21,8 @@ export class BillingRecordComponent implements OnInit {
   companiesWithBills: any[] = [];
   mySetCompaniesWithBills: Set<string> = new Set();
   //arrayCompaniesWithBills = Array.from(this.companiesWithBills.values());
+  reverse: boolean;
+ 
 
   COLOR_STATUS = {
     overdue: 'alert',
@@ -56,6 +59,50 @@ export class BillingRecordComponent implements OnInit {
           this.checkUnpaidBills();
         },
         error =>  this.errorMessage = <any>error);
+  }
+
+sortBy(category){
+    if(this.reverse=== false){
+      this.reverse = true;
+      if( category=== 'id' || category === 'total'){
+        return this.billingRecords.sort((a,b)=> b[category] - a[category])
+      }
+      if (category === 'client'){
+        return this.billingRecords.sort((a,b)=> a.client.name.localeCompare(b.client.name))
+      }
+      if(category === 'rate'){
+        return this.billingRecords.sort((a,b)=> a.rate.localeCompare(b.rate))
+      }
+      if( category === 'createdBy'){
+        return this.billingRecords.sort((a,b)=> a.createdBy.username.localeCompare(b.createdBy.username))
+      }
+      return this.billingRecords.sort((a,b)=> b[category].localeCompare(a[category]));
+
+    } else{
+      this.reverse= false;
+      if( category=== 'id' || category === 'total'){
+        return this.billingRecords.sort((a,b)=> a[category] - b[category])
+      }
+      if (category === 'client'){
+        return this.billingRecords.sort((a,b)=> b.client.name.localeCompare(a.client.name))
+      }
+      if(category === 'rate'){
+        return this.billingRecords.sort((a,b)=> b.rate.localeCompare(a.rate))
+      }
+      if( category === 'createdBy'){
+        return this.billingRecords.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
+      }
+      return this.billingRecords.sort((a,b)=> a[category].localeCompare(b[category]));
+    }
+  }
+
+
+  compareDate(d) {
+    const date = new Date(d);
+    const now = new Date(Date.now())
+    if( date < now) {
+      return this.COLOR_STATUS['overdue']
+    }
   }
 
   payBillingRecord(billingRecordId) {
@@ -112,3 +159,4 @@ export class BillingRecordComponent implements OnInit {
   }
 
 }
+

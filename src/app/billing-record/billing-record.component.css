@@ -47,3 +47,6 @@ th, td {
   color: white;
 }
 
+th p {
+  cursor: pointer;
+}

@@ -10,13 +10,17 @@ table {
 
 /* Customize container */
 @media (min-width: 600px) {
+    /*
     .container {
         max-width: 768px;
     }
+    */
 }
 /* Customize container */
 @media (min-width: 800px) {
     .container-fluid {
+        /*
         max-width: 1024px;
+        */
     }
 }

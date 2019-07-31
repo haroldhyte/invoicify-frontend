@@ -9,7 +9,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" routerLink="/home">
-                <img width="100" alt="Invoicify - HR" src="assets/images/ally_logo.png" />
+              <button class="btn btn-neutral" style="color: black;"><b>Invoicify by <span style="color: #50104A;">Ally</span></b></button>
+                <!--<img width="100" alt="Invoicify - HR" src="assets/images/ally_logo.png" />-->
             </a>
         </div>
          <!--/.nav-collapse -->
@@ -23,8 +24,7 @@
             <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-success">Login</button>
         </form>
         <div class="navbar-text navbar-right" *ngIf="authService.isAuthenticated()">
-            Signed in as: <a [routerLink]="['/user/edit/', auth_user.id]">{{auth_user.username}}</a>
-            <button type="submit" class="btn btn-primary" (click)="logout()">Logout</button>
+            <button type="submit" class="btn btn-primary" (click)="logout()"><b>{{auth_user.username}}</b> Logout</button>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">

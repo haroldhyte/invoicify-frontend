@@ -460,7 +460,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/billing-record/billing-record.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Billing Records</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n  \r\n  <div id=\"message\">\r\n      <div style=\"padding: 5px;\">\r\n        <div id=\"inner-message\" class=\"alert alert-error\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            You have unpaid records\r\n       </div>\r\n      </div>\r\n    </div>\r\n\r\n\r\n<h2>Billing Records</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/billing-record/add\">Add Billing Record</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Description</th>\r\n        <th class=\"col-sm-2\">Client</th>\r\n        <th class=\"col-sm-2\">Type</th>\r\n        <th>Created By</th>\r\n        <th class=\"col-sm-2\">Status</th>\r\n        <th>Total</th>\r\n        <th>Due Date</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let billingRecord of billingRecords\">\r\n        <td>{{billingRecord.id}}</td>\r\n        <td>{{billingRecord.description}}</td>\r\n        <td>{{billingRecord.client.name}}</td>\r\n        <td>{{(billingRecord.rate && billingRecord.quantity) ? \"Rate Based\" : \"Flat Fee\"}}</td>\r\n        <td>{{billingRecord.createdBy.username}}</td>\r\n        <td class=\"{{ COLOR_STATUS[billingRecord.status] }}\">{{billingRecord.status}}</td>\r\n        <td>{{billingRecord.total}}</td>\r\n        <td class=\"{{ compareDateAndStatus(billingRecord) }}\">{{billingRecord.dueDate  | date:\"MM/dd/yy\"}}</td>\r\n        <td class=\"text-center\" >\r\n            <button *ngIf=\"billingRecord.status === 'Unpaid'\" (click)=\"payBillingRecord(billingRecord.id)\" class=\"btn btn-success\">Pay</button>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Billing Records</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n  \r\n  <div id=\"message\">\r\n      <div style=\"padding: 5px;\">\r\n        <div id=\"inner-message\" class=\"alert alert-error\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            You have unpaid records\r\n       </div>\r\n      </div>\r\n    </div>\r\n\r\n\r\n<h2>Billing Records</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/billing-record/add\">Add Billing Record</a>\r\n\r\n  <table >\r\n      <tr>\r\n        <th>\r\n          <p (click)=\"sortBy('id')\" > ID</p>\r\n        </th>\r\n\r\n        <th>\r\n          <p (click)=\"sortBy('description')\">Description</p>\r\n        </th>\r\n        <th>\r\n          <p (click) = \"sortBy('client')\">Client Name</p>\r\n        </th>\r\n        <th>\r\n            <p >Rate</p>\r\n        </th>\r\n        <th>\r\n            <p (click)=\"sortBy('createdBy')\">Created By</p>\r\n        </th>\r\n        <th>\r\n            <p (click)=\"sortBy('status')\">Status</p>\r\n        </th>\r\n        <th>\r\n            <p (click)=\"sortBy('total')\">Total</p>\r\n        </th>\r\n        <th>\r\n            <p (click)=\"sortBy('dueDate')\">Due Date</p>\r\n        </th>\r\n        <th>Admin</th>\r\n        <th>Delete</th>\r\n      </tr>\r\n      <tr *ngFor=\"let billingRecord of billingRecords \">\r\n        <td>{{billingRecord.id}}</td>\r\n        <td>{{billingRecord.description}}</td>\r\n        <td>{{billingRecord.client.name}}</td>\r\n        <td>{{(billingRecord.rate && billingRecord.quantity) ? \"Rate Based\" : \"Flat Fee\"}}</td>\r\n        <td>{{billingRecord.createdBy.username}}</td>\r\n        <td >{{billingRecord.status}}</td>\r\n        <td>{{billingRecord.total}}</td>\r\n        <td class=\"{{ compareDateAndStatus(billingRecord) }}\">{{billingRecord.dueDate  | date:\"MM/dd/yy\"}}</td>\r\n        <td class=\"text-center\" >\r\n            <button *ngIf=\"billingRecord.status === 'Unpaid'\" (click)=\"payBillingRecord(billingRecord.id)\" class=\"btn btn-success\">Pay</button>\r\n        </td>\r\n        <td>\r\n          <button (click)=\"deleteBillingRecord(billingRecord.id)\" class=\"btn btn-danger\">Delete</button>\r\n        </td>\r\n      </tr>\r\n    </table>\r\n\r\n\r\n</section>\r\n"
 
 /***/ }),
 
@@ -471,7 +471,8 @@ module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__animations_fade_in_animation__ = __webpack_require__("../../../../../src/app/animations/fade-in.animation.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__delete_confirm_delete_confirm_component__ = __webpack_require__("../../../../../src/app/delete-confirm/delete-confirm.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__animations_fade_in_animation__ = __webpack_require__("../../../../../src/app/animations/fade-in.animation.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BillingRecordComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -482,6 +483,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -501,7 +503,41 @@ var BillingRecordComponent = (function () {
     BillingRecordComponent.prototype.getBillingRecords = function () {
         var _this = this;
         this.dataService.getRecords("billing-record")
-            .subscribe(function (results) { return _this.billingRecords = results; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (results) { return _this.billingRecords = results.sort(function (a, b) { return b.status.localeCompare(a.status); }); }, function (error) { return _this.errorMessage = error; });
+    };
+    BillingRecordComponent.prototype.sortBy = function (category) {
+        if (this.reverse === false) {
+            this.reverse = true;
+            if (category === 'id' || category === 'total') {
+                return this.billingRecords.sort(function (a, b) { return b[category] - a[category]; });
+            }
+            if (category === 'client') {
+                return this.billingRecords.sort(function (a, b) { return a.client.name.localeCompare(b.client.name); });
+            }
+            if (category === 'rate') {
+                return this.billingRecords.sort(function (a, b) { return a.rate.localeCompare(b.rate); });
+            }
+            if (category === 'createdBy') {
+                return this.billingRecords.sort(function (a, b) { return a.createdBy.username.localeCompare(b.createdBy.username); });
+            }
+            return this.billingRecords.sort(function (a, b) { return b[category].localeCompare(a[category]); });
+        }
+        else {
+            this.reverse = false;
+            if (category === 'id' || category === 'total') {
+                return this.billingRecords.sort(function (a, b) { return a[category] - b[category]; });
+            }
+            if (category === 'client') {
+                return this.billingRecords.sort(function (a, b) { return b.client.name.localeCompare(a.client.name); });
+            }
+            if (category === 'rate') {
+                return this.billingRecords.sort(function (a, b) { return b.rate.localeCompare(a.rate); });
+            }
+            if (category === 'createdBy') {
+                return this.billingRecords.sort(function (a, b) { return b.createdBy.username.localeCompare(a.createdBy.username); });
+            }
+            return this.billingRecords.sort(function (a, b) { return a[category].localeCompare(b[category]); });
+        }
     };
     BillingRecordComponent.prototype.compareDate = function (d) {
         var date = new Date(d);
@@ -516,12 +552,26 @@ var BillingRecordComponent = (function () {
         endpoint += "/" + billingRecordId;
         var date = new Date();
         var status = "Paid " + date.toLocaleDateString('en-US');
-        //console.log(status) //DEBUG
         this.dataService.editRecordField(endpoint, "status", status)
             .subscribe(function (result) {
             _this.successMessage = "Record paid successfully",
                 _this.getBillingRecords();
         }, function (error) { return _this.errorMessage = error; });
+    };
+    BillingRecordComponent.prototype.deleteBillingRecord = function (billingRecordId) {
+        var _this = this;
+        var endpoint = "billing-record";
+        endpoint += "/" + billingRecordId;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__delete_confirm_delete_confirm_component__["a" /* DeleteConfirmComponent */]);
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.dataService.deleteRecord(endpoint)
+                    .subscribe(function (response) {
+                    _this.successMessage = "Record deleted successfully";
+                    _this.getBillingRecords();
+                }, function (error) { _this.errorMessage = error; });
+            }
+        });
     };
     BillingRecordComponent.prototype.compareDateAndStatus = function (BillingRecord) {
         var dueDate = new Date(BillingRecord.dueDate);
@@ -541,7 +591,7 @@ BillingRecordComponent = __decorate([
         selector: 'app-billing-record',
         template: __webpack_require__("../../../../../src/app/billing-record/billing-record.component.html"),
         styles: [__webpack_require__("../../../../../src/app/billing-record/billing-record.component.css")],
-        animations: [__WEBPACK_IMPORTED_MODULE_3__animations_fade_in_animation__["a" /* fadeInAnimation */]]
+        animations: [__WEBPACK_IMPORTED_MODULE_4__animations_fade_in_animation__["a" /* fadeInAnimation */]]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]) === "function" && _b || Object])
 ], BillingRecordComponent);
@@ -1487,7 +1537,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-form/user-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n    <li>\r\n      <a routerLink=\"/home\">Home</a>\r\n    </li>\r\n    <li>\r\n      <a routerLink=\"/user\">Users</a>\r\n    </li>\r\n    <li class=\"active\">Manage User</li>\r\n  </ol>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/user\">Return to Users</a>\r\n\r\n  <h1>Manage User</h1>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <form novalidate (ngSubmit)=\"saveUser(userForm)\" #userForm=\"ngForm\" class=\"form-horizontal\">\r\n    <input [ngModel]=\"user?.id\" ngModel #userId=\"ngModel\" type=\"hidden\" name=\"id\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\" class=\"col-sm-2 control-label\">Username</label>\r\n      <div class=\"col-sm-10\">\r\n        <input [ngModel]=\"user?.username\" ngModel #userName=\"ngModel\" type=\"text\" class=\"form-control\" id=\"username\" name=\"username\"\r\n          placeholder=\"Username\" required minlength=\"5\" maxlength=\"30\">\r\n        <span *ngIf=\"formErrors.username\" class=\"text-danger\">\r\n          {{ formErrors.username }}\r\n        </span>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"name\" class=\"col-sm-2 control-label\">Password</label>\r\n      <div class=\"col-sm-10\">\r\n        <input ngModel #password=\"ngModel\" type=\"password\" class=\"form-control\" id=\"password\" name=\"password\"\r\n          placeholder=\"Password\" minlength=\"8\" pattern=\"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$\">\r\n        <span *ngIf=\"formErrors.password\" class=\"text-danger\">\r\n          {{ formErrors.password }}\r\n        </span>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-offset-2 col-sm-10\">\r\n        <button [disabled]=\"!userForm.form.valid\" type=\"submit\" class=\"btn btn-primary\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</section>"
+module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n    <li>\r\n      <a routerLink=\"/home\">Home</a>\r\n    </li>\r\n    <li>\r\n      <a routerLink=\"/user\">Users</a>\r\n    </li>\r\n    <li class=\"active\">Manage User</li>\r\n  </ol>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/user\">Return to Users</a>\r\n\r\n  <h1>Manage User</h1>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <form novalidate (ngSubmit)=\"saveUser(userForm)\" #userForm=\"ngForm\" class=\"form-horizontal\">\r\n    <input [ngModel]=\"user?.id\" ngModel #userId=\"ngModel\" type=\"hidden\" name=\"id\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\" class=\"col-sm-2 control-label\">Username</label>\r\n      <div class=\"col-sm-10\">\r\n        <input [ngModel]=\"user?.username\" ngModel #userName=\"ngModel\" type=\"text\" class=\"form-control\" id=\"username\"\r\n          name=\"username\" placeholder=\"Username\" required minlength=\"5\" maxlength=\"30\">\r\n        <span *ngIf=\"formErrors.username\" class=\"text-danger\">\r\n          {{ formErrors.username }}\r\n        </span>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"name\" class=\"col-sm-2 control-label\">Password</label>\r\n      <div class=\"col-sm-10\">\r\n        <input ngModel #password=\"ngModel\" type=\"password\" class=\"form-control\" id=\"password\" name=\"password\"\r\n          placeholder=\"Password\" minlength=\"8\" pattern=\"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$\">\r\n        <span *ngIf=\"formErrors.password\" class=\"text-danger\">\r\n          {{ formErrors.password }}\r\n        </span>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"name\" class=\"col-sm-2 control-label\">Type</label>\r\n      <div class=\"col-sm-10\">\r\n        <div>\r\n          <label style=\"padding-inline: 1em\">\r\n              <input [ngModel]=\"user?.type \" ngModel #userName=\"ngModel\" type=\"radio\" class=\"form-control\" id=\"admin\"\r\n              value=\"admin\" name=\"type\" placeholder=\"type\" >Admin\r\n          </label>\r\n          <label style=\"padding-inline: 1em\">\r\n              <input [ngModel]=\"user?.type\" ngModel #userName=\"ngModel\" type=\"radio\" class=\"form-control\" id=\"ally\"\r\n              value=\"ally\" name=\"type\" placeholder=\"type\">Ally\r\n          </label>\r\n         <label style=\"padding-inline: 1em\">\r\n            <input [ngModel]=\"user?.type\" ngModel #userName=\"ngModel\" type=\"radio\" class=\"form-control\" id=\"client\"\r\n            value=\"client\" name=\"type\" placeholder=\"type\" >Client\r\n         </label>\r\n          <span *ngIf=\"formErrors.type\" class=\"text-danger\">\r\n            {{ formErrors.type }}\r\n          </span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"client\" class=\"col-sm-2 control-label\">Client</label>\r\n      <div class=\"col-sm-10\">\r\n        <select required [ngModel]=\"null\" ngModel #client=\"ngModel\" class=\"form-control\" id=\"company\" name=\"company\">\r\n          <option [ngValue]=\"null\">-- Select Client --</option>\r\n          <option *ngFor=\"let company of companies\" [ngValue]=\"company\">\r\n            {{ company.name }}\r\n          </option>\r\n        </select>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <div class=\"col-sm-offset-2 col-sm-10\">\r\n        <button [disabled]=\"!userForm.form.valid\" type=\"submit\" class=\"btn btn-primary\">Submit</button>\r\n      </div>\r\n    </div>\r\n  </form>\r\n</section>"
 
 /***/ }),
 
@@ -1527,7 +1577,8 @@ var UserFormComponent = (function () {
         this.location = location;
         this.formErrors = {
             'username': '',
-            'password': ''
+            'password': '',
+            'type': ''
         };
         this.validationMessages = {
             'username': {
@@ -1538,6 +1589,10 @@ var UserFormComponent = (function () {
             'password': {
                 'pattern': 'Password must be at least one upper case letter, at least one lower case English letter, at least one digit, at least one special character, and 8 characters in length',
                 'minlength': ''
+            },
+            'type': {
+                'required': 'User type is required',
+                'pattern': 'Type must be one of the following: Admin, Ally, or Client'
             }
         };
     }
@@ -1549,6 +1604,7 @@ var UserFormComponent = (function () {
     };
     UserFormComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.getCompanies();
         this.route.params
             .subscribe(function (params) {
             (+params['id']) ? _this.getRecordForEdit() : null;
@@ -1578,6 +1634,11 @@ var UserFormComponent = (function () {
         this.userForm = this.currentForm;
         this.userForm.valueChanges
             .subscribe(function (data) { return _this.onValueChanged(data); });
+    };
+    UserFormComponent.prototype.getCompanies = function () {
+        var _this = this;
+        this.dataService.getRecords("company")
+            .subscribe(function (companies) { return _this.companies = companies; }, function (error) { return _this.errorMessage = error; });
     };
     UserFormComponent.prototype.onValueChanged = function (data) {
         var form = this.userForm.form;
@@ -1635,7 +1696,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user/user.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Users</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <h2>Users</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/user/add\">Add User</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>username</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let user of users\">\r\n        <td>{{user.id}}</td>\r\n        <td>{{user.username}}</td>\r\n        <td class=\"text-center\">\r\n          <a class=\"btn btn-primary\" [routerLink]=\"['/user/edit/', user.id]\">Edit</a>&nbsp;\r\n          <!-- <button (click)=\"deleteUser(user.id)\" class=\"btn btn-danger\">Delete</button> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Users</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <h2>Users</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/user/add\">Add User</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>username</th>\r\n        <th>Type</th>\r\n        <th>Company Name</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let user of users\">\r\n        <td>{{user.id}}</td>\r\n        <td>{{user.username}}</td>\r\n        <td>{{user.type}}</td>\r\n        <td>{{user.company?.name}}</td>\r\n        <td class=\"text-center\">\r\n          <a class=\"btn btn-primary\" [routerLink]=\"['/user/edit/', user.id]\">Edit</a>&nbsp;\r\n          <!-- <button (click)=\"deleteUser(user.id)\" class=\"btn btn-danger\">Delete</button> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
 
 /***/ }),
 

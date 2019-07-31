@@ -27,7 +27,8 @@
             <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-success">Login</button>
         </form>
         <div class="navbar-form navbar-right" *ngIf="authService.isAuthenticated()">
-            <button style="background-color: #cb3974; border-color: #cb3974;" type="submit" class="btn btn-primary" (click)="logout()"><b>{{auth_user.username}}</b> Logout</button>
+            <button style="background-color: #371447; border-color: #371447;" type="submit" class="btn btn-primary"><b>{{auth_user.username}}</b></button>
+            <button style="background-color: #cb3974; border-color: #cb3974;" type="submit" class="btn btn-primary" (click)="logout()">Logout</button>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">

@@ -61,6 +61,19 @@ export class CompanyBillingRecordComponent implements OnInit {
         if( category === 'createdBy'){
           return this.billingRecords.sort((a,b)=> a.createdBy.username.localeCompare(b.createdBy.username))
         }
+        if( category === 'dueDate'){
+          return this.billingRecords.sort((a,b) =>
+            {
+              let left = new Date(a.dueDate).getUTCDate();
+              let right = new Date(b.dueDate).getUTCDate();
+              if(left < right) {
+                return -1;
+              } else if (left === right) {
+                return 0;
+              } else return 1;
+            }
+          );
+        }
         return this.billingRecords.sort((a,b)=> b[category].localeCompare(a[category]));
 
       } else{
@@ -76,6 +89,19 @@ export class CompanyBillingRecordComponent implements OnInit {
         }
         if( category === 'createdBy'){
           return this.billingRecords.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
+        }
+        if( category === 'dueDate'){
+          return this.billingRecords.sort((a,b) =>
+            {
+              let left = new Date(a.dueDate).getUTCDate();
+              let right = new Date(b.dueDate).getUTCDate();
+              if(left > right) {
+                return -1;
+              } else if (left === right) {
+                return 0;
+              } else return 1;
+            }
+          );
         }
         return this.billingRecords.sort((a,b)=> a[category].localeCompare(b[category]));
       }
@@ -98,7 +124,7 @@ export class CompanyBillingRecordComponent implements OnInit {
     let date = new Date()
     let status = "Paid " + date.toLocaleDateString('en-US')
 
-    //console.log(status) //DEBUG
+
 
     this.dataService.editRecordField(endpoint, "status", status)
       .subscribe(

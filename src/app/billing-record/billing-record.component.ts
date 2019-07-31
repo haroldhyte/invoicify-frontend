@@ -18,7 +18,7 @@ export class BillingRecordComponent implements OnInit {
   successMessage: string;
   billingRecords: any[];
   reverse: boolean;
- 
+
 
   COLOR_STATUS = {
     overdue: 'alert',
@@ -55,6 +55,19 @@ sortBy(category){
       if( category === 'createdBy'){
         return this.billingRecords.sort((a,b)=> a.createdBy.username.localeCompare(b.createdBy.username))
       }
+      if( category === 'dueDate'){
+        return this.billingRecords.sort((a,b) =>
+          {
+            let left = new Date(a.dueDate).getUTCDate();
+            let right = new Date(b.dueDate).getUTCDate();
+            if(left < right) {
+              return -1;
+            } else if (left === right) {
+              return 0;
+            } else return 1;
+          }
+        );
+      }
       return this.billingRecords.sort((a,b)=> b[category].localeCompare(a[category]));
 
     } else{
@@ -71,10 +84,32 @@ sortBy(category){
       if( category === 'createdBy'){
         return this.billingRecords.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
       }
+      if( category === 'dueDate'){
+        return this.billingRecords.sort((a,b) =>
+          {
+            let left = new Date(a.dueDate).getUTCDate();
+            let right = new Date(b.dueDate).getUTCDate();
+            if(left > right) {
+              return -1;
+            } else if (left === right) {
+              return 0;
+            } else return 1;
+          }
+        );
+      }
       return this.billingRecords.sort((a,b)=> a[category].localeCompare(b[category]));
     }
   }
 
+  compareDates(a, b) {
+    let left = new Date(a);
+    let right = new Date(b)
+    if(left < right) {
+      return -1;
+    } else if (left === right) {
+      return 0;
+    } else return 1;
+  }
 
   compareDate(d) {
     const date = new Date(d);
@@ -119,7 +154,7 @@ sortBy(category){
           },
           error => {this.errorMessage = <any>error}
         )
-      }   
+      }
     })
   }
 
@@ -137,4 +172,3 @@ sortBy(category){
     }
   }
 }
-

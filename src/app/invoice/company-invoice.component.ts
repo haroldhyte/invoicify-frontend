@@ -51,6 +51,33 @@ export class CompanyInvoiceComponent implements OnInit {
         if( category === 'createdBy'){
           return this.invoices.sort((a,b)=> a.createdBy.username.localeCompare(b.createdBy.username))
         }
+        if( category === 'dueDate'){
+          return this.invoices.sort((a,b) =>
+            {
+              let left = new Date(a.dueDate).getUTCDate();
+              let right = new Date(b.dueDate).getUTCDate();
+
+              if(left < right) {
+                return -1;
+              } else if (left === right) {
+                return 0;
+              } else return 1;
+            }
+          );
+        }
+        if( category === 'createdOn'){
+          return this.invoices.sort((a,b) =>
+            {
+              let left = new Date(a.createdOn).getUTCDate();
+              let right = new Date(b.createdOn).getUTCDate();
+              if(left < right) {
+                return -1;
+              } else if (left === right) {
+                return 0;
+              } else return 1;
+            }
+          );
+        }
         return this.invoices.sort((a,b)=> b[category].localeCompare(a[category]));
 
       } else{
@@ -66,6 +93,32 @@ export class CompanyInvoiceComponent implements OnInit {
         }
         if( category === 'createdBy'){
           return this.invoices.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
+        }
+        if( category === 'dueDate'){
+          return this.invoices.sort((a,b) =>
+            {
+              let left = new Date(a.dueDate).getUTCDate();
+              let right = new Date(b.dueDate).getUTCDate();
+              if(left > right) {
+                return -1;
+              } else if (left === right) {
+                return 0;
+              } else return 1;
+            }
+          );
+        }
+        if( category === 'createdOn'){
+          return this.invoices.sort((a,b) =>
+            {
+              let left = new Date(a.createdOn).getUTCDate();
+              let right = new Date(b.createdOn).getUTCDate();
+              if(left > right) {
+                return -1;
+              } else if (left === right) {
+                return 0;
+              } else return 1;
+            }
+          );
         }
         return this.invoices.sort((a,b)=> a[category].localeCompare(b[category]));
       }

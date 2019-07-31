@@ -65,7 +65,6 @@ export class BillingRecordFormComponent implements OnInit {
           if(result.status === "Paid") {
             billingRecord.payBillingRecord(result.id)
           }
-          console.log(result)
         },
         error => this.errorMessage = <any>error
       );

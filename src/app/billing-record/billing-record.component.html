@@ -5,8 +5,7 @@
   </ol>
 
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-
-  <div id="message" style="display: inline-flexbox;" *ngIf="companyId == -1">
+  <div *ngIf="companyId == -1 && mySetCompaniesWithBills.size" id="message" style="display: inline-flexbox;">
       <div>
         <div id="inner-message" class="alert alert-error">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -17,7 +16,7 @@
        </div>
       </div>
     </div>
-    <div id="messageTwo" style="display: inline-flexbox;" *ngIf="companyId == -1">
+    <div *ngIf="companyId == -1 && mySetCompaniesWithBillsYellow.size" id="messageTwo" style="display: inline-flexbox;">
         <div>
           <div id="inner-message" class="alertyellow alert-error">
               <button type="button" class="close" data-dismiss="alert">&times;</button>

@@ -26,7 +26,7 @@ var fadeInAnimation = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular
         // styles at start of transition
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ opacity: 0 }),
         // animation and styles at end of transition
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* animate */])('.3s', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ opacity: 1 }))
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* animate */])('0s', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ opacity: 1 }))
     ]),
 ]);
 //# sourceMappingURL=fade-in.animation.js.map
@@ -108,13 +108,18 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__company_form_company_form_component__ = __webpack_require__("../../../../../src/app/company-form/company-form.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__status_message_status_message_component__ = __webpack_require__("../../../../../src/app/status-message/status-message.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__auth_guard_service__ = __webpack_require__("../../../../../src/app/auth-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__user_form_user_form_component__ = __webpack_require__("../../../../../src/app/user-form/user-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__billing_record_billing_record_component__ = __webpack_require__("../../../../../src/app/billing-record/billing-record.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__billing_record_form_billing_record_form_component__ = __webpack_require__("../../../../../src/app/billing-record-form/billing-record-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__invoice_form_invoice_form_component__ = __webpack_require__("../../../../../src/app/invoice-form/invoice-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__invoice_invoice_component__ = __webpack_require__("../../../../../src/app/invoice/invoice.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__role_authentication_auth_guard_client_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-client.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__role_authentication_auth_guard_ally_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-ally.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__role_authentication_auth_guard_admin_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__user_form_user_form_component__ = __webpack_require__("../../../../../src/app/user-form/user-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__billing_record_billing_record_component__ = __webpack_require__("../../../../../src/app/billing-record/billing-record.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__billing_record_company_billing_record_component__ = __webpack_require__("../../../../../src/app/billing-record/company-billing-record.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__billing_record_form_billing_record_form_component__ = __webpack_require__("../../../../../src/app/billing-record-form/billing-record-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__invoice_form_invoice_form_component__ = __webpack_require__("../../../../../src/app/invoice-form/invoice-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__invoice_invoice_component__ = __webpack_require__("../../../../../src/app/invoice/invoice.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__invoice_company_invoice_component__ = __webpack_require__("../../../../../src/app/invoice/company-invoice.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -122,6 +127,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -160,12 +170,14 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_12__delete_confirm_delete_confirm_component__["a" /* DeleteConfirmComponent */],
             __WEBPACK_IMPORTED_MODULE_13__company_form_company_form_component__["a" /* CompanyFormComponent */],
             __WEBPACK_IMPORTED_MODULE_14__status_message_status_message_component__["a" /* StatusMessageComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__user_user_component__["a" /* UserComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__user_form_user_form_component__["a" /* UserFormComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__billing_record_billing_record_component__["a" /* BillingRecordComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__billing_record_form_billing_record_form_component__["a" /* BillingRecordFormComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__invoice_form_invoice_form_component__["a" /* InvoiceFormComponent */],
-            __WEBPACK_IMPORTED_MODULE_22__invoice_invoice_component__["a" /* InvoiceComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__user_user_component__["a" /* UserComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__user_form_user_form_component__["a" /* UserFormComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__billing_record_billing_record_component__["a" /* BillingRecordComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__billing_record_company_billing_record_component__["a" /* CompanyBillingRecordComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__billing_record_form_billing_record_form_component__["a" /* BillingRecordFormComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__invoice_form_invoice_form_component__["a" /* InvoiceFormComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__invoice_company_invoice_component__["a" /* CompanyInvoiceComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__invoice_invoice_component__["a" /* InvoiceComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -176,7 +188,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
         ],
         entryComponents: [__WEBPACK_IMPORTED_MODULE_12__delete_confirm_delete_confirm_component__["a" /* DeleteConfirmComponent */]],
-        providers: [__WEBPACK_IMPORTED_MODULE_11__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_15__auth_guard_service__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_16__auth_service__["a" /* AuthService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_11__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_15__auth_guard_service__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_16__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */], __WEBPACK_IMPORTED_MODULE_17__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */], __WEBPACK_IMPORTED_MODULE_18__role_authentication_auth_guard_admin_service__["a" /* AdminAuthGuard */], __WEBPACK_IMPORTED_MODULE_19__auth_service__["a" /* AuthService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -263,6 +275,18 @@ var AuthService = (function () {
     };
     AuthService.prototype.isAuthenticated = function () {
         return !!localStorage.getItem("auth_user");
+    };
+    AuthService.prototype.getUserRole = function () {
+        if (this.isAuthenticated()) {
+            var auth_user = JSON.parse(localStorage.getItem("auth_user"));
+            return auth_user.type;
+        }
+        else
+            return "unauthenticated";
+    };
+    AuthService.prototype.getUserCompany = function () {
+        var auth_user = JSON.parse(localStorage.getItem("auth_user"));
+        return auth_user.company;
     };
     return AuthService;
 }());
@@ -386,6 +410,8 @@ var BillingRecordFormComponent = (function () {
         endpoint += "/" + billingRecordForm.value.client;
         delete (billingRecordForm.value.client);
         var billingRecord = new __WEBPACK_IMPORTED_MODULE_7__billing_record_billing_record_component__["a" /* BillingRecordComponent */](this.dataService, this.dialog);
+        var date = new Date(billingRecordForm.value.dueDate + " 0:00:01");
+        billingRecordForm.value.dueDate = date.toLocaleDateString();
         this.dataService.addRecord(endpoint, billingRecordForm.value)
             .subscribe(function (result) {
             _this.successMessage = "Record added successfully";
@@ -447,7 +473,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".alert {\r\n  padding: 20px;\r\n  background-color: #f44336;\r\n  color: white;\r\n}\r\n\r\n.closebtn {\r\n  margin-left: 15px;\r\n  color: white;\r\n  font-weight: bold;\r\n  float: right;\r\n  font-size: 22px;\r\n  line-height: 20px;\r\n  cursor: pointer;\r\n  transition: 0.3s;\r\n}\r\n\r\n.closebtn:hover {\r\n  color: black;\r\n}\r\n\r\nth, td {\r\n  text-align: center;\r\n}\r\n\r\n.billing-status {\r\n    color: red;\r\n    font-weight: bold;\r\n}\r\n\r\n.billing-status2 {\r\n    color: green;\r\n    font-weight: bold;\r\n}\r\n\r\n.overdue {\r\n  color: red\r\n}\r\n\r\n.billwarning {\r\n  color: yellow\r\n}\r\n\r\n.alertyellow {\r\n  padding: 20px;\r\n  background-color: #ffcc00;\r\n  color: white;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".alert {\r\n  padding: 20px;\r\n  background-color: #f44336;\r\n  color: white;\r\n}\r\n\r\n.closebtn {\r\n  margin-left: 15px;\r\n  color: white;\r\n  font-weight: bold;\r\n  float: right;\r\n  font-size: 22px;\r\n  line-height: 20px;\r\n  cursor: pointer;\r\n  transition: 0.3s;\r\n}\r\n\r\n.closebtn:hover {\r\n  color: black;\r\n}\r\n\r\nth, td {\r\n  text-align: center;\r\n}\r\n\r\n.billing-status {\r\n    color: red;\r\n    font-weight: bold;\r\n}\r\n\r\n.billing-status2 {\r\n    color: green;\r\n    font-weight: bold;\r\n}\r\n\r\n.overdue {\r\n  color: red\r\n}\r\n\r\n.billwarning {\r\n  color: yellow\r\n}\r\n\r\n.alertyellow {\r\n  padding: 20px;\r\n  background-color: #ffcc00;\r\n  color: white;\r\n}\r\n\r\nth {\r\n  cursor: pointer;\r\n}\r\n", ""]);
 
 // exports
 
@@ -460,7 +486,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/billing-record/billing-record.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Billing Records</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n  \r\n  <div id=\"message\">\r\n      <div style=\"padding: 5px;\">\r\n        <div id=\"inner-message\" class=\"alert alert-error\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            You have unpaid records\r\n       </div>\r\n      </div>\r\n    </div>\r\n\r\n\r\n<h2>Billing Records</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/billing-record/add\">Add Billing Record</a>\r\n\r\n  <table >\r\n      <tr>\r\n        <th>\r\n          <p (click)=\"sortBy('id')\" > ID</p>\r\n        </th>\r\n\r\n        <th>\r\n          <p (click)=\"sortBy('description')\">Description</p>\r\n        </th>\r\n        <th>\r\n          <p (click) = \"sortBy('client')\">Client Name</p>\r\n        </th>\r\n        <th>\r\n            <p >Rate</p>\r\n        </th>\r\n        <th>\r\n            <p (click)=\"sortBy('createdBy')\">Created By</p>\r\n        </th>\r\n        <th>\r\n            <p (click)=\"sortBy('status')\">Status</p>\r\n        </th>\r\n        <th>\r\n            <p (click)=\"sortBy('total')\">Total</p>\r\n        </th>\r\n        <th>\r\n            <p (click)=\"sortBy('dueDate')\">Due Date</p>\r\n        </th>\r\n        <th>Admin</th>\r\n        <th>Delete</th>\r\n      </tr>\r\n      <tr *ngFor=\"let billingRecord of billingRecords \">\r\n        <td>{{billingRecord.id}}</td>\r\n        <td>{{billingRecord.description}}</td>\r\n        <td>{{billingRecord.client.name}}</td>\r\n        <td>{{(billingRecord.rate && billingRecord.quantity) ? \"Rate Based\" : \"Flat Fee\"}}</td>\r\n        <td>{{billingRecord.createdBy.username}}</td>\r\n        <td >{{billingRecord.status}}</td>\r\n        <td>{{billingRecord.total}}</td>\r\n        <td class=\"{{ compareDateAndStatus(billingRecord) }}\">{{billingRecord.dueDate  | date:\"MM/dd/yy\"}}</td>\r\n        <td class=\"text-center\" >\r\n            <button *ngIf=\"billingRecord.status === 'Unpaid'\" (click)=\"payBillingRecord(billingRecord.id)\" class=\"btn btn-success\">Pay</button>\r\n        </td>\r\n        <td>\r\n          <button (click)=\"deleteBillingRecord(billingRecord.id)\" class=\"btn btn-danger\">Delete</button>\r\n        </td>\r\n      </tr>\r\n    </table>\r\n\r\n\r\n</section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Billing Records</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n  <div *ngIf=\"companyId == -1 && mySetCompaniesWithBills.size\" id=\"message\" style=\"display: inline-flexbox;\">\r\n      <div>\r\n        <div id=\"inner-message\" class=\"alert alert-error\">\r\n            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n            <p style=\"padding-bottom: 1em;\">Companies that have unpaid records: </p>\r\n            <div *ngFor=\"let companyName of mySetCompaniesWithBills\"> \r\n              <span>{{companyName}}</span>\r\n            </div>\r\n       </div>\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"companyId == -1 && mySetCompaniesWithBillsYellow.size\" id=\"messageTwo\" style=\"display: inline-flexbox;\">\r\n        <div>\r\n          <div id=\"inner-message\" class=\"alertyellow alert-error\">\r\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n              <p style=\"padding-bottom: 1em;\">Companies that have record due dates approaching: </p>\r\n              <div *ngFor=\"let companyNameYellow of mySetCompaniesWithBillsYellow\"> \r\n                <span>{{companyNameYellow}}</span>\r\n              </div>\r\n         </div>\r\n        </div>\r\n      </div>\r\n\r\n<h2>Billing Records</h2>\r\n\r\n  <a *ngIf=\"companyId == -1\" class=\"btn btn-primary\" routerLink=\"/billing-record/add\">Add Billing Record</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th (click)=\"sortBy('id')\">ID</th>\r\n        <th (click)=\"sortBy('description')\">Description</th>\r\n        <th class=\"col-sm-2\" (click)=\"sortBy('client')\">Client</th>\r\n        <th class=\"col-sm-2\">Rate</th>\r\n        <th (click)=\"sortBy('createdBy')\">Created By</th>\r\n        <th class=\"col-sm-2\" (click)=\"sortBy('status')\">Status</th>\r\n        <th (click)=\"sortBy('total')\">Total</th>\r\n        <th (click)=\"sortBy('dueDate')\">Due Date</th>\r\n        <th>Actions</th>\r\n      </tr>\r\n    </thead>\r\n      <tr *ngFor=\"let billingRecord of billingRecords \">\r\n        <td>{{billingRecord.id}}</td>\r\n        <td>{{billingRecord.description}}</td>\r\n        <td>{{billingRecord.client.name}}</td>\r\n        <td>{{(billingRecord.rate && billingRecord.quantity) ? \"Rate Based\" : \"Flat Fee\"}}</td>\r\n        <td>{{billingRecord.createdBy.username}}</td>\r\n        <td>{{billingRecord.status}}</td>\r\n        <td>{{billingRecord.total}}</td>\r\n        <td class=\"{{ compareDateAndStatus(billingRecord) }}\">{{billingRecord.dueDate  | date:\"MM/dd/yy\"}}</td>\r\n        <td class=\"text-center\" >\r\n            <button *ngIf=\"billingRecord.status === 'Unpaid'\" (click)=\"payBillingRecord(billingRecord.id)\" class=\"btn btn-success\">Pay</button>\r\n            <button *ngIf=\"companyId == -1\" (click)=\"deleteBillingRecord(billingRecord.id)\" class=\"btn btn-danger\">Delete</button>\r\n        </td>\r\n      </tr>\r\n    </table>\r\n\r\n\r\n</section>\r\n"
 
 /***/ }),
 
@@ -473,6 +499,7 @@ module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__delete_confirm_delete_confirm_component__ = __webpack_require__("../../../../../src/app/delete-confirm/delete-confirm.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__animations_fade_in_animation__ = __webpack_require__("../../../../../src/app/animations/fade-in.animation.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_functions_date_compare__ = __webpack_require__("../../../../../src/app/common-functions/date-compare.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BillingRecordComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -488,22 +515,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var BillingRecordComponent = (function () {
     function BillingRecordComponent(dataService, dialog) {
         this.dataService = dataService;
         this.dialog = dialog;
+        this.mySetCompaniesWithBills = new Set();
+        this.mySetCompaniesWithBillsYellow = new Set();
         this.COLOR_STATUS = {
             overdue: 'alert',
             warning: 'alertyellow',
             alert: 'class_style_here',
             unpaid: 'alert'
         };
+        this.companyId = -1;
+        // this.billingRecords = [];
+        // this.hasUnpaidBills = false;
     }
-    BillingRecordComponent.prototype.ngOnInit = function () { this.getBillingRecords(); };
+    BillingRecordComponent.prototype.ngOnInit = function () {
+        this.getBillingRecords();
+    };
+    BillingRecordComponent.prototype.checkUnpaidBills = function () {
+        var now = new Date(Date.now());
+        for (var myBill in this.billingRecords) {
+            var dueDate = new Date(this.billingRecords[myBill].dueDate);
+            if (this.billingRecords[myBill].status == 'Unpaid' && now > dueDate) {
+                this.mySetCompaniesWithBills.add(this.billingRecords[myBill].client.name);
+            }
+        }
+    };
+    BillingRecordComponent.prototype.checkUpcomingBills = function () {
+        var now = new Date(Date.now());
+        var twoDaysFromNow = new Date(new Date().getTime() + (2 * 24 * 60 * 60 * 1000));
+        for (var myBill in this.billingRecords) {
+            var dueDate = new Date(this.billingRecords[myBill].dueDate);
+            if ((dueDate >= now && dueDate <= twoDaysFromNow) && this.billingRecords[myBill].status == "Unpaid") {
+                this.mySetCompaniesWithBillsYellow.add(this.billingRecords[myBill].client.name);
+            }
+        }
+    };
     BillingRecordComponent.prototype.getBillingRecords = function () {
         var _this = this;
         this.dataService.getRecords("billing-record")
-            .subscribe(function (results) { return _this.billingRecords = results.sort(function (a, b) { return b.status.localeCompare(a.status); }); }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (results) {
+            _this.billingRecords = results;
+            _this.checkUnpaidBills();
+            _this.checkUpcomingBills();
+        }, function (error) { return _this.errorMessage = error; });
     };
     BillingRecordComponent.prototype.sortBy = function (category) {
         if (this.reverse === false) {
@@ -519,6 +577,9 @@ var BillingRecordComponent = (function () {
             }
             if (category === 'createdBy') {
                 return this.billingRecords.sort(function (a, b) { return a.createdBy.username.localeCompare(b.createdBy.username); });
+            }
+            if (category === 'dueDate') {
+                return this.billingRecords.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__common_functions_date_compare__["a" /* compareDates */])(a, b); });
             }
             return this.billingRecords.sort(function (a, b) { return b[category].localeCompare(a[category]); });
         }
@@ -536,8 +597,23 @@ var BillingRecordComponent = (function () {
             if (category === 'createdBy') {
                 return this.billingRecords.sort(function (a, b) { return b.createdBy.username.localeCompare(a.createdBy.username); });
             }
+            if (category === 'dueDate') {
+                return this.billingRecords.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__common_functions_date_compare__["a" /* compareDates */])(b, a); });
+            }
             return this.billingRecords.sort(function (a, b) { return a[category].localeCompare(b[category]); });
         }
+    };
+    BillingRecordComponent.prototype.compareDates = function (a, b) {
+        var left = new Date(a);
+        var right = new Date(b);
+        if (left < right) {
+            return -1;
+        }
+        else if (left === right) {
+            return 0;
+        }
+        else
+            return 1;
     };
     BillingRecordComponent.prototype.compareDate = function (d) {
         var date = new Date(d);
@@ -580,7 +656,7 @@ var BillingRecordComponent = (function () {
         if ((dueDate < now) && BillingRecord.status == "Unpaid") {
             return this.COLOR_STATUS['overdue'];
         }
-        if ((twoDaysFromNow >= dueDate || dueDate <= now) && BillingRecord.status == "Unpaid") {
+        if (twoDaysFromNow >= dueDate && BillingRecord.status == "Unpaid") {
             return this.COLOR_STATUS['warning'];
         }
     };
@@ -598,6 +674,180 @@ BillingRecordComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=billing-record.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/billing-record/company-billing-record.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_client_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-client.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__delete_confirm_delete_confirm_component__ = __webpack_require__("../../../../../src/app/delete-confirm/delete-confirm.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__animations_fade_in_animation__ = __webpack_require__("../../../../../src/app/animations/fade-in.animation.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__common_functions_date_compare__ = __webpack_require__("../../../../../src/app/common-functions/date-compare.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyBillingRecordComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var CompanyBillingRecordComponent = (function () {
+    function CompanyBillingRecordComponent(dataService, dialog, clientAuth) {
+        this.dataService = dataService;
+        this.dialog = dialog;
+        this.clientAuth = clientAuth;
+        this.COLOR_STATUS = {
+            overdue: 'alert',
+            warning: 'alertyellow',
+            alert: 'class_style_here',
+            unpaid: 'alert'
+        };
+        this.companyId = -1;
+        this.companyId = this.getCompany().id;
+    }
+    CompanyBillingRecordComponent.prototype.ngOnInit = function () { this.getBillingRecords(); };
+    CompanyBillingRecordComponent.prototype.getCompany = function () {
+        return this.clientAuth.companyAccess();
+    };
+    CompanyBillingRecordComponent.prototype.getBillingRecords = function () {
+        var _this = this;
+        this.dataService.getRecord("billing-record/company", this.companyId)
+            .subscribe(function (results) { return _this.billingRecords = results.sort(function (a, b) { return b.status.localeCompare(a.status); }); }, function (error) { return _this.errorMessage = error; });
+    };
+    CompanyBillingRecordComponent.prototype.sortBy = function (category) {
+        if (this.reverse === false) {
+            this.reverse = true;
+            if (category === 'id' || category === 'total') {
+                return this.billingRecords.sort(function (a, b) { return b[category] - a[category]; });
+            }
+            if (category === 'client') {
+                return this.billingRecords.sort(function (a, b) { return a.client.name.localeCompare(b.client.name); });
+            }
+            if (category === 'rate') {
+                return this.billingRecords.sort(function (a, b) { return a.rate.localeCompare(b.rate); });
+            }
+            if (category === 'createdBy') {
+                return this.billingRecords.sort(function (a, b) { return a.createdBy.username.localeCompare(b.createdBy.username); });
+            }
+            if (category === 'dueDate') {
+                return this.billingRecords.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__common_functions_date_compare__["a" /* compareDates */])(a, b); });
+            }
+            return this.billingRecords.sort(function (a, b) { return b[category].localeCompare(a[category]); });
+        }
+        else {
+            this.reverse = false;
+            if (category === 'id' || category === 'total') {
+                return this.billingRecords.sort(function (a, b) { return a[category] - b[category]; });
+            }
+            if (category === 'client') {
+                return this.billingRecords.sort(function (a, b) { return b.client.name.localeCompare(a.client.name); });
+            }
+            if (category === 'rate') {
+                return this.billingRecords.sort(function (a, b) { return b.rate.localeCompare(a.rate); });
+            }
+            if (category === 'createdBy') {
+                return this.billingRecords.sort(function (a, b) { return b.createdBy.username.localeCompare(a.createdBy.username); });
+            }
+            if (category === 'dueDate') {
+                return this.billingRecords.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__common_functions_date_compare__["a" /* compareDates */])(b, a); });
+            }
+            return this.billingRecords.sort(function (a, b) { return a[category].localeCompare(b[category]); });
+        }
+    };
+    CompanyBillingRecordComponent.prototype.compareDate = function (d) {
+        var date = new Date(d);
+        var now = new Date(Date.now());
+        if (date < now) {
+            return this.COLOR_STATUS['overdue'];
+        }
+    };
+    CompanyBillingRecordComponent.prototype.payBillingRecord = function (billingRecordId) {
+        var _this = this;
+        var endpoint = "billing-record/status";
+        endpoint += "/" + billingRecordId;
+        var date = new Date();
+        var status = "Paid " + date.toLocaleDateString('en-US');
+        this.dataService.editRecordField(endpoint, "status", status)
+            .subscribe(function (result) {
+            _this.successMessage = "Record paid successfully",
+                _this.getBillingRecords();
+        }, function (error) { return _this.errorMessage = error; });
+    };
+    CompanyBillingRecordComponent.prototype.deleteBillingRecord = function (billingRecordId) {
+        var _this = this;
+        var endpoint = "billing-record";
+        endpoint += "/" + billingRecordId;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__delete_confirm_delete_confirm_component__["a" /* DeleteConfirmComponent */]);
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.dataService.deleteRecord(endpoint)
+                    .subscribe(function (response) {
+                    _this.successMessage = "Record deleted successfully";
+                    _this.getBillingRecords();
+                }, function (error) { _this.errorMessage = error; });
+            }
+        });
+    };
+    CompanyBillingRecordComponent.prototype.compareDateAndStatus = function (BillingRecord) {
+        var dueDate = new Date(BillingRecord.dueDate);
+        var now = new Date(Date.now());
+        var twoDaysFromNow = new Date(new Date().getTime() + (2 * 24 * 60 * 60 * 1000));
+        if ((dueDate < now) && BillingRecord.status == "Unpaid") {
+            return this.COLOR_STATUS['overdue'];
+        }
+        if ((twoDaysFromNow >= dueDate || dueDate <= now) && BillingRecord.status == "Unpaid") {
+            return this.COLOR_STATUS['warning'];
+        }
+    };
+    return CompanyBillingRecordComponent;
+}());
+CompanyBillingRecordComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        selector: 'app-billing-record',
+        template: __webpack_require__("../../../../../src/app/billing-record/billing-record.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/billing-record/billing-record.component.css")],
+        animations: [__WEBPACK_IMPORTED_MODULE_5__animations_fade_in_animation__["a" /* fadeInAnimation */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatDialog */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */]) === "function" && _c || Object])
+], CompanyBillingRecordComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=company-billing-record.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/common-functions/date-compare.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = compareDates;
+function compareDates(a, b) {
+    var left = new Date(a.dueDate + " 0:00:01");
+    var right = new Date(b.dueDate + " 0:00:01");
+    if (left < right) {
+        return -1;
+    }
+    else if (left === right) {
+        return 0;
+    }
+    else
+        return 1;
+}
+//# sourceMappingURL=date-compare.js.map
 
 /***/ }),
 
@@ -762,7 +1012,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/company/company.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Companies</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <h2>Companies</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/company/add\">Add Company</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Name</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let company of companies\">\r\n        <td>{{company.id}}</td>\r\n        <td>{{company.name}}</td>\r\n        <td class=\"text-center\">\r\n          <a class=\"btn btn-primary\" [routerLink]=\"['/company/edit/', company.id]\">Edit</a>&nbsp;\r\n          <button (click)=\"deleteCompany(company.id)\" class=\"btn btn-danger\">Delete</button>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Companies</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <h2>Companies</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/company/add\">Add Company</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>Name</th>\r\n        <th>Actions</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let company of companies\">\r\n        <td>{{company.id}}</td>\r\n        <td>{{company.name}}</td>\r\n        <td class=\"text-center\">\r\n          <a class=\"btn btn-primary\" [routerLink]=\"['/company/edit/', company.id]\">Edit</a>&nbsp;\r\n          <button (click)=\"deleteCompany(company.id)\" class=\"btn btn-danger\">Delete</button>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -977,7 +1227,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/delete-confirm/delete-confirm.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>Delete Record</h2>\r\n<mat-dialog-content>Are you sure?</mat-dialog-content>\r\n<mat-dialog-actions>\r\n  <button mat-button mat-dialog-close>No</button>\r\n  <button mat-button [mat-dialog-close]=\"true\">Yes</button>\r\n</mat-dialog-actions>"
+module.exports = "<h2 mat-dialog-title>Delete Record</h2>\r\n<mat-dialog-content>Are you sure?</mat-dialog-content>\r\n<mat-dialog-actions>\r\n  <button class=\"btn btn-success\" style=\"float: left;\" mat-button mat-dialog-close>No</button>\r\n  <button class=\"btn btn-danger\" style=\"float: right;\" mat-button [mat-dialog-close]=\"true\">Yes</button>\r\n</mat-dialog-actions>\r\n"
 
 /***/ }),
 
@@ -1038,7 +1288,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <h2 class=\"featurette-heading\">INVOICIFY <span class=\"text-muted\">Ally's Invoice Tracker.</span></h2>\r\n\r\n  <div id=\"carousel-example-generic\" class=\"carousel slide\" data-ride=\"carousel\">\r\n    <!-- Indicators -->\r\n    <ol class=\"carousel-indicators\">\r\n      <li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>\r\n      <li data-target=\"#carousel-example-generic\" data-slide-to=\"1\"></li>\r\n      <li data-target=\"#carousel-example-generic\" data-slide-to=\"2\"></li>\r\n    </ol>\r\n\r\n    <!-- Wrapper for slides -->\r\n    <div class=\"carousel-inner\" role=\"listbox\" height=\"500px\">\r\n      <div class=\"item active\">\r\n        <img src=\"https://www.ally.com/resources/pres/micro-sites/dealer-brand/images/leadership/hero_image_1152.jpg\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Lorem ipsum dolor sit amet.</h3>\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Controls -->\r\n    <a class=\"left carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"prev\">\r\n      <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\r\n      <span class=\"sr-only\">Previous</span>\r\n    </a>\r\n    <a class=\"right carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"next\">\r\n      <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\r\n      <span class=\"sr-only\">Next</span>\r\n    </a>\r\n  </div>\r\n\r\n\r\n      <!-- START THE FEATURETTES -->\r\n\r\n      <hr>\r\n\r\n      <div class=\"row featurette\">\r\n        <div class=\"col-lg-12\">\r\n          <h2 class=\"featurette-heading\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  <span class=\"text-muted\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span></h2>\r\n          <p class=\"lead\">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>\r\n          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dictum sagittis velit. Etiam a pharetra diam. Ut vitae hendrerit odio, sodales elementum mi. Praesent sagittis, justo id maximus blandit, libero ex aliquet nibh, vitae volutpat ipsum eros et ligula. Proin placerat ex gravida arcu sodales, vitae semper dolor eleifend. Donec fermentum in elit pellentesque consectetur. Ut dictum hendrerit ipsum, a efficitur quam efficitur non. Praesent iaculis arcu odio, a ullamcorper ipsum posuere id. Phasellus ante urna, molestie nec rhoncus a, auctor nec dui. Mauris viverra justo nec nibh mollis sagittis. Vestibulum ipsum felis, malesuada vel ex ut, mollis iaculis ipsum. Donec malesuada quis enim non convallis. Sed faucibus eros id condimentum ullamcorper.\r\n        </div>\r\n      </div>\r\n\r\n      <hr>\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-md-7 col-md-push-5\">\r\n          <h2 class=\"featurette-heading\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  <span class=\"text-muted\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span></h2>\r\n          <p class=\"lead\">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>\r\n          <p> Etiam in elementum tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eleifend quam sed mi posuere mattis. Sed at imperdiet turpis. Etiam laoreet nibh id iaculis tempus. Quisque id purus pellentesque, efficitur felis eget, vulputate libero. Fusce id est sit amet purus euismod vulputate. Nullam posuere lectus at sem tristique mattis. Proin ligula metus, finibus vitae arcu sed, mollis posuere sem. Aliquam consequat, erat vel porta eleifend, eros massa vehicula neque, et feugiat lectus ligula ut odio. Quisque ut augue velit. Vivamus massa nibh, blandit vitae quam at, gravida molestie dolor. Proin nec elementum felis.\r\n        </div>\r\n        <div class=\"col-md-5 col-md-pull-7\">\r\n          <img src=\"https://media.bizj.us/view/img/2571971/ally-center.png\" width=\"300px\" alt=\"Ally Center, Charlotte\">\r\n        </div>\r\n      </div>\r\n\r\n      <!-- /END THE FEATURETTES -->\r\n</section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n  <h2 class=\"featurette-heading\"><b>Invoicify <span class=\"text-muted\">Invoice Tracker</span>\r\n    <span style=\"float: right;\"><span class=\"text-muted\">By </span><span style=\"color: #5f285e;\">Ally Financial</span></span></b></h2>\r\n\r\n  <div id=\"carousel-example-generic\" class=\"carousel slide\" data-ride=\"carousel\">\r\n    <!-- Indicators -->\r\n    <ol class=\"carousel-indicators\">\r\n      <li data-target=\"#carousel-example-generic\" data-slide-to=\"0\" class=\"active\"></li>\r\n      <li data-target=\"#carousel-example-generic\" data-slide-to=\"1\"></li>\r\n      <li data-target=\"#carousel-example-generic\" data-slide-to=\"2\"></li>\r\n    </ol>\r\n\r\n    <!-- Wrapper for slides -->\r\n    <div class=\"carousel-inner\" role=\"listbox\" height=\"500px\">\r\n      <div class=\"item active\">\r\n        <img src=\"https://www.ally.com/resources/pres/micro-sites/dealer-brand/images/leadership/hero_image_1152.jpg\">\r\n        <div class=\"carousel-caption\">\r\n          <h3>Lorem ipsum dolor sit amet.</h3>\r\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Controls -->\r\n    <a class=\"left carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"prev\">\r\n      <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\r\n      <span class=\"sr-only\">Previous</span>\r\n    </a>\r\n    <a class=\"right carousel-control\" href=\"#carousel-example-generic\" role=\"button\" data-slide=\"next\">\r\n      <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\r\n      <span class=\"sr-only\">Next</span>\r\n    </a>\r\n  </div>\r\n\r\n\r\n      <!-- START THE FEATURETTES -->\r\n\r\n      <hr>\r\n\r\n      <div class=\"row featurette\">\r\n        <div class=\"col-lg-12\">\r\n          <h2 class=\"featurette-heading\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  <span class=\"text-muted\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span></h2>\r\n          <p class=\"lead\">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>\r\n          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dictum sagittis velit. Etiam a pharetra diam. Ut vitae hendrerit odio, sodales elementum mi. Praesent sagittis, justo id maximus blandit, libero ex aliquet nibh, vitae volutpat ipsum eros et ligula. Proin placerat ex gravida arcu sodales, vitae semper dolor eleifend. Donec fermentum in elit pellentesque consectetur. Ut dictum hendrerit ipsum, a efficitur quam efficitur non. Praesent iaculis arcu odio, a ullamcorper ipsum posuere id. Phasellus ante urna, molestie nec rhoncus a, auctor nec dui. Mauris viverra justo nec nibh mollis sagittis. Vestibulum ipsum felis, malesuada vel ex ut, mollis iaculis ipsum. Donec malesuada quis enim non convallis. Sed faucibus eros id condimentum ullamcorper.\r\n        </div>\r\n      </div>\r\n\r\n      <hr>\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-md-7 col-md-push-5\">\r\n          <h2 class=\"featurette-heading\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  <span class=\"text-muted\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span></h2>\r\n          <p class=\"lead\">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>\r\n          <p> Etiam in elementum tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque eleifend quam sed mi posuere mattis. Sed at imperdiet turpis. Etiam laoreet nibh id iaculis tempus. Quisque id purus pellentesque, efficitur felis eget, vulputate libero. Fusce id est sit amet purus euismod vulputate. Nullam posuere lectus at sem tristique mattis. Proin ligula metus, finibus vitae arcu sed, mollis posuere sem. Aliquam consequat, erat vel porta eleifend, eros massa vehicula neque, et feugiat lectus ligula ut odio. Quisque ut augue velit. Vivamus massa nibh, blandit vitae quam at, gravida molestie dolor. Proin nec elementum felis.\r\n        </div>\r\n        <div class=\"col-md-5 col-md-pull-7\">\r\n          <img src=\"https://media.bizj.us/view/img/2571971/ally-center.png\" width=\"300px\" alt=\"Ally Center, Charlotte\">\r\n        </div>\r\n      </div>\r\n\r\n      <!-- /END THE FEATURETTES -->\r\n</section>\r\n"
 
 /***/ }),
 
@@ -1175,6 +1425,10 @@ var InvoiceFormComponent = (function () {
         var _this = this;
         var endpoint = "invoice/" + invoiceForm.value.client;
         delete (invoiceForm.value.client);
+        var date = new Date(invoiceForm.value.dueDate + " 0:00:01");
+        invoiceForm.value.dueDate = date.toLocaleDateString();
+        var date2 = new Date(invoiceForm.value.createdOn + " 0:00:01");
+        invoiceForm.value.createdOn = date2.toLocaleDateString();
         this.dataService.addRecord(endpoint, invoiceForm.value)
             .subscribe(function (company) { return _this.successMessage = "Record added successfully"; }, function (error) { return _this.errorMessage = error; });
         this.invoiceForm.reset();
@@ -1223,6 +1477,109 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
+/***/ "../../../../../src/app/invoice/company-invoice.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-client.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__animations_fade_in_animation__ = __webpack_require__("../../../../../src/app/animations/fade-in.animation.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_functions_date_compare__ = __webpack_require__("../../../../../src/app/common-functions/date-compare.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyInvoiceComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CompanyInvoiceComponent = (function () {
+    function CompanyInvoiceComponent(dataService, clientAuth) {
+        this.dataService = dataService;
+        this.clientAuth = clientAuth;
+        this.companyId = -1;
+        this.companyId = this.getCompany().id;
+    }
+    CompanyInvoiceComponent.prototype.ngOnInit = function () { this.getInvoices(); };
+    CompanyInvoiceComponent.prototype.getCompany = function () {
+        return this.clientAuth.companyAccess();
+    };
+    CompanyInvoiceComponent.prototype.getInvoices = function () {
+        var _this = this;
+        this.dataService.getRecord("invoice/company", this.companyId)
+            .subscribe(function (results) { return _this.invoices = results.sort(function (a, b) { return b.createdOn.localeCompare(a.createdOn); }); }, function (error) { return _this.errorMessage = error; });
+    };
+    CompanyInvoiceComponent.prototype.sortBy = function (category) {
+        if (this.reverse === false) {
+            this.reverse = true;
+            if (category === 'id' || category === 'total' || category === "lineItems.length") {
+                return this.invoices.sort(function (a, b) { return b[category] - a[category]; });
+            }
+            if (category === 'client') {
+                return this.invoices.sort(function (a, b) { return a.client.name.localeCompare(b.client.name); });
+            }
+            if (category === 'rate') {
+                return this.invoices.sort(function (a, b) { return a.rate.localeCompare(b.rate); });
+            }
+            if (category === 'createdBy') {
+                return this.invoices.sort(function (a, b) { return a.createdBy.username.localeCompare(b.createdBy.username); });
+            }
+            if (category === 'dueDate') {
+                return this.invoices.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_functions_date_compare__["a" /* compareDates */])(a, b); });
+            }
+            if (category === 'createdOn') {
+                return this.invoices.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_functions_date_compare__["a" /* compareDates */])(a, b); });
+            }
+            return this.invoices.sort(function (a, b) { return b[category].localeCompare(a[category]); });
+        }
+        else {
+            this.reverse = false;
+            if (category === 'id' || category === 'total' || category === "lineItems.length") {
+                return this.invoices.sort(function (a, b) { return a[category] - b[category]; });
+            }
+            if (category === 'client') {
+                return this.invoices.sort(function (a, b) { return b.client.name.localeCompare(a.client.name); });
+            }
+            if (category === 'rate') {
+                return this.invoices.sort(function (a, b) { return b.rate.localeCompare(a.rate); });
+            }
+            if (category === 'createdBy') {
+                return this.invoices.sort(function (a, b) { return b.createdBy.username.localeCompare(a.createdBy.username); });
+            }
+            if (category === 'dueDate') {
+                return this.invoices.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_functions_date_compare__["a" /* compareDates */])(b, a); });
+            }
+            if (category === 'createdOn') {
+                return this.invoices.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__common_functions_date_compare__["a" /* compareDates */])(b, a); });
+            }
+            return this.invoices.sort(function (a, b) { return a[category].localeCompare(b[category]); });
+        }
+    };
+    return CompanyInvoiceComponent;
+}());
+CompanyInvoiceComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        selector: 'app-invoice',
+        template: __webpack_require__("../../../../../src/app/invoice/invoice.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/invoice/invoice.component.css")],
+        animations: [__WEBPACK_IMPORTED_MODULE_3__animations_fade_in_animation__["a" /* fadeInAnimation */]]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */]) === "function" && _b || Object])
+], CompanyInvoiceComponent);
+
+var _a, _b;
+//# sourceMappingURL=company-invoice.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/invoice/invoice.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1244,7 +1601,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/invoice/invoice.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n    <ol class=\"breadcrumb\">\r\n        <li><a routerLink=\"/home\">Home</a></li>\r\n        <li class=\"active\">Invoices</li>\r\n    </ol>\r\n\r\n    <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n    <h2>Manage Invoices</h2>\r\n\r\n    <a class=\"btn btn-primary\" routerLink=\"/invoice/add\">Add Invoice</a>\r\n\r\n    <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n      <thead>\r\n        <tr>\r\n          <th>ID</th>\r\n          <th>Description</th>\r\n          <th>Client</th>\r\n          <th>Line Items</th>\r\n          <th>Created By</th>\r\n          <th>Created On</th>\r\n          <th>Due Date</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let invoice of invoices\">\r\n          <td>{{invoice.id}}</td>\r\n          <td>{{invoice.invoiceDescription}}</td>\r\n          <td>{{invoice.company.name}}</td>\r\n          <td>{{invoice.lineItems.length}}</td>\r\n          <td>{{invoice.createdBy.username}}</td>\r\n          <td>{{invoice.createdOn | date:\"MM/dd/yy\"}}</td>\r\n          <td>{{invoice.dueDate | date:\"MM/dd/yy\"}}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n    <ol class=\"breadcrumb\">\r\n        <li><a routerLink=\"/home\">Home</a></li>\r\n        <li class=\"active\">Invoices</li>\r\n    </ol>\r\n\r\n    <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n    <h2>Manage Invoices</h2>\r\n\r\n    <a *ngIf=\"companyId == -1\" class=\"btn btn-primary\" routerLink=\"/invoice/add\">Add Invoice</a>\r\n\r\n    <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n      <thead>\r\n        <tr>\r\n          <th (click)=\"sortBy('id')\">ID</th>\r\n          <th (click)=\"sortBy('invoiceDescription')\">Description</th>\r\n          <th (click)=\"sortBy('client')\">Client</th>\r\n          <th (click)=\"sortBy('lineItems.length')\">Line Items</th>\r\n          <th (click)=\"sortBy('createdBy')\">Created By</th>\r\n          <th (click)=\"sortBy('createdOn')\">Created On</th>\r\n          <th (click)=\"sortBy('dueDate')\">Due Date</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let invoice of invoices\">\r\n          <td>{{invoice.id}}</td>\r\n          <td>{{invoice.invoiceDescription}}</td>\r\n          <td>{{invoice.company.name}}</td>\r\n          <td>{{invoice.lineItems.length}}</td>\r\n          <td>{{invoice.createdBy.username}}</td>\r\n          <td>{{invoice.createdOn | date:\"MM/dd/yy\"}}</td>\r\n          <td>{{invoice.dueDate | date:\"MM/dd/yy\"}}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </section>\r\n"
 
 /***/ }),
 
@@ -1255,6 +1612,7 @@ module.exports = "<section @fadeInAnimation>\r\n    <ol class=\"breadcrumb\">\r\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__animations_fade_in_animation__ = __webpack_require__("../../../../../src/app/animations/fade-in.animation.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_functions_date_compare__ = __webpack_require__("../../../../../src/app/common-functions/date-compare.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoiceComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1268,15 +1626,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var InvoiceComponent = (function () {
     function InvoiceComponent(dataService) {
         this.dataService = dataService;
+        this.companyId = -1;
     }
     InvoiceComponent.prototype.ngOnInit = function () { this.getInvoices(); };
     InvoiceComponent.prototype.getInvoices = function () {
         var _this = this;
         this.dataService.getRecords("invoice")
-            .subscribe(function (results) { return _this.invoices = results; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (results) { return _this.invoices = results.sort(function (a, b) { return b.createdOn.localeCompare(a.createdOn); }); }, function (error) { return _this.errorMessage = error; });
+    };
+    InvoiceComponent.prototype.sortBy = function (category) {
+        if (this.reverse === false) {
+            this.reverse = true;
+            if (category === 'id' || category === 'total' || category === "lineItems.length") {
+                return this.invoices.sort(function (a, b) { return b[category] - a[category]; });
+            }
+            if (category === 'client') {
+                return this.invoices.sort(function (a, b) { return a.company.name.localeCompare(b.company.name); });
+            }
+            if (category === 'rate') {
+                return this.invoices.sort(function (a, b) { return a.rate.localeCompare(b.rate); });
+            }
+            if (category === 'createdBy') {
+                return this.invoices.sort(function (a, b) { return a.createdBy.username.localeCompare(b.createdBy.username); });
+            }
+            if (category === 'dueDate') {
+                return this.invoices.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_functions_date_compare__["a" /* compareDates */])(a, b); });
+            }
+            if (category === 'createdOn') {
+                return this.invoices.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_functions_date_compare__["a" /* compareDates */])(a, b); });
+            }
+            return this.invoices.sort(function (a, b) { return b[category].localeCompare(a[category]); });
+        }
+        else {
+            this.reverse = false;
+            if (category === 'id' || category === 'total' || category === "lineItems.length") {
+                return this.invoices.sort(function (a, b) { return a[category] - b[category]; });
+            }
+            if (category === 'client') {
+                return this.invoices.sort(function (a, b) { return b.company.name.localeCompare(a.company.name); });
+            }
+            if (category === 'rate') {
+                return this.invoices.sort(function (a, b) { return b.rate.localeCompare(a.rate); });
+            }
+            if (category === 'createdBy') {
+                return this.invoices.sort(function (a, b) { return b.createdBy.username.localeCompare(a.createdBy.username); });
+            }
+            if (category === 'dueDate') {
+                return this.invoices.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_functions_date_compare__["a" /* compareDates */])(b, a); });
+            }
+            if (category === 'createdOn') {
+                return this.invoices.sort(function (a, b) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__common_functions_date_compare__["a" /* compareDates */])(b, a); });
+            }
+            return this.invoices.sort(function (a, b) { return a[category].localeCompare(b[category]); });
+        }
     };
     return InvoiceComponent;
 }());
@@ -1316,7 +1722,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navigation/navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-header\">\r\n            <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\"\r\n                aria-controls=\"navbar\">\r\n                <span class=\"sr-only\">Toggle navigation</span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n            </button>\r\n            <a class=\"navbar-brand\" routerLink=\"/home\">\r\n                <img width=\"100\" alt=\"Invoicify - HR\" src=\"assets/images/ally_logo.png\" />\r\n            </a>\r\n        </div>\r\n         <!--/.nav-collapse -->\r\n         <form class=\"navbar-form navbar-right\" (ngSubmit)=\"login(loginForm)\" #loginForm=\"ngForm\" *ngIf=\"!authService.isAuthenticated()\">\r\n            <div class=\"form-group\">\r\n                <input type=\"text\" ngModel #username=\"ngModel\" class=\"form-control\" placeholder=\"Username\" name=\"username\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <input type=\"password\" ngModel #passowrd=\"ngModel\" class=\"form-control\" placeholder=\"Password\" name=\"password\" required>\r\n            </div>\r\n            <button [disabled]=\"!loginForm.form.valid\" type=\"submit\" class=\"btn btn-success\">Login</button>\r\n        </form>\r\n        <div class=\"navbar-text navbar-right\" *ngIf=\"authService.isAuthenticated()\">\r\n            Signed in as: <a [routerLink]=\"['/user/edit/', auth_user.id]\">{{auth_user.username}}</a>\r\n            <button type=\"submit\" class=\"btn btn-primary\" (click)=\"logout()\">Logout</button> \r\n        </div>\r\n  \r\n        <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n            <ul class=\"nav navbar-nav\">\r\n                <li routerLinkActive=\"active\">\r\n                    <a routerLink=\"/home\">Home</a>\r\n                </li>\r\n                <li *ngIf=\"authService.isAuthenticated()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/company\">Companies</a>\r\n                </li>\r\n                <li *ngIf=\"authService.isAuthenticated()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/billing-record\">Billing Records</a>\r\n                </li>\r\n                <li *ngIf=\"authService.isAuthenticated()\" routerLinkActive=\"active\">\r\n                        <a routerLink=\"/invoice\">Invoices</a>\r\n                    </li>\r\n                <li *ngIf=\"authService.isAuthenticated()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/user\">Users</a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>\r\n\r\n<div class=\"container\">\r\n    <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n</div>"
+module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"navbar-header\">\r\n            <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\"\r\n                aria-controls=\"navbar\">\r\n                <span class=\"sr-only\">Toggle navigation</span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n                <span class=\"icon-bar\"></span>\r\n            </button>\r\n            <a routerLink=\"/home\">\r\n              <div class=\"navbar-form navbar-left\">\r\n              <button style=\"background-color: #fff7f0; border-color: #fff7f0;\" class=\"btn btn-neutral\" style=\"color: black;\">\r\n                <b>Invoicify by <span style=\"color: #5f285e;\">Ally Financial</span></b></button>\r\n                <!--<img width=\"100\" alt=\"Invoicify - HR\" src=\"assets/images/ally_logo.png\" />-->\r\n              </div>\r\n            </a>\r\n        </div>\r\n         <!--/.nav-collapse -->\r\n         <form class=\"navbar-form navbar-right\" (ngSubmit)=\"login(loginForm)\" #loginForm=\"ngForm\" *ngIf=\"!authService.isAuthenticated()\">\r\n            <div class=\"form-group\">\r\n                <input type=\"text\" ngModel #username=\"ngModel\" class=\"form-control\" placeholder=\"Username\" name=\"username\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <input type=\"password\" ngModel #passowrd=\"ngModel\" class=\"form-control\" placeholder=\"Password\" name=\"password\" required>\r\n            </div>\r\n            <button [disabled]=\"!loginForm.form.valid\" type=\"submit\" class=\"btn btn-success\">Login</button>\r\n        </form>\r\n        <div class=\"navbar-form navbar-right\" *ngIf=\"authService.isAuthenticated()\">\r\n            <button style=\"background-color: #371447; border-color: #371447;\" type=\"submit\" class=\"btn btn-primary\"><b>{{auth_user.username}}</b></button>\r\n            <button style=\"background-color: #cb3974; border-color: #cb3974;\" type=\"submit\" class=\"btn btn-primary\" (click)=\"logout()\">Logout</button>\r\n        </div>\r\n\r\n        <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n            <ul class=\"nav navbar-nav\">\r\n                <li routerLinkActive=\"active\">\r\n                    <a routerLink=\"/home\">Home</a>\r\n                </li>\r\n                <li *ngIf=\"allyAuth.isThisRoleOrHigher()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/company\">Companies</a>\r\n                </li>\r\n                <li *ngIf=\"clientAuth.isThisRole()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/company-billing-record\">Company Billing Records</a>\r\n                </li>\r\n                <li *ngIf=\"allyAuth.isThisRoleOrHigher()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/billing-record\">Billing Records</a>\r\n                </li>\r\n                <li *ngIf=\"clientAuth.isThisRole()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/company-invoice\">Company Invoices</a>\r\n                </li>\r\n                <li *ngIf=\"allyAuth.isThisRoleOrHigher()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/invoice\">Invoices</a>\r\n                </li>\r\n                <li *ngIf=\"adminAuth.isThisRoleOrHigher()\" routerLinkActive=\"active\">\r\n                    <a routerLink=\"/user\">Users</a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>\r\n\r\n<div class=\"container\">\r\n    <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1326,7 +1732,10 @@ module.exports = "<nav class=\"navbar navbar-inverse navbar-fixed-top\">\r\n    
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-client.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-ally.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__role_authentication_auth_guard_admin_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavigationComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1340,10 +1749,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var NavigationComponent = (function () {
-    function NavigationComponent(authService, router) {
+    function NavigationComponent(authService, router, clientAuth, allyAuth, adminAuth) {
         this.authService = authService;
         this.router = router;
+        this.clientAuth = clientAuth;
+        this.allyAuth = allyAuth;
+        this.adminAuth = adminAuth;
     }
     NavigationComponent.prototype.ngOnInit = function () {
         this.refreshUser();
@@ -1374,11 +1789,167 @@ NavigationComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/navigation/navigation.component.html"),
         styles: [__webpack_require__("../../../../../src/app/navigation/navigation.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__role_authentication_auth_guard_admin_service__["a" /* AdminAuthGuard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__role_authentication_auth_guard_admin_service__["a" /* AdminAuthGuard */]) === "function" && _e || Object])
 ], NavigationComponent);
 
-var _a, _b;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=navigation.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/role-authentication/auth-guard-admin.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminAuthGuard; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AdminAuthGuard = (function () {
+    function AdminAuthGuard(auth, router) {
+        this.auth = auth;
+        this.router = router;
+    }
+    AdminAuthGuard.prototype.canActivate = function () {
+        if (!this.auth.isAuthenticated()) {
+            this.router.navigate(['home']);
+            return false;
+        }
+        return this.isThisRoleOrHigher();
+    };
+    AdminAuthGuard.prototype.isThisRole = function () {
+        return this.auth.getUserRole() == "admin";
+    };
+    AdminAuthGuard.prototype.isThisRoleOrHigher = function () {
+        return this.isThisRole();
+    };
+    return AdminAuthGuard;
+}());
+AdminAuthGuard = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], AdminAuthGuard);
+
+var _a, _b;
+//# sourceMappingURL=auth-guard-admin.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/role-authentication/auth-guard-ally.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AllyAuthGuard; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AllyAuthGuard = (function () {
+    function AllyAuthGuard(auth, router) {
+        this.auth = auth;
+        this.router = router;
+    }
+    AllyAuthGuard.prototype.canActivate = function () {
+        if (!this.auth.isAuthenticated()) {
+            this.router.navigate(['home']);
+            return false;
+        }
+        return this.isThisRoleOrHigher();
+    };
+    AllyAuthGuard.prototype.isThisRole = function () {
+        return this.auth.getUserRole() == "ally";
+    };
+    AllyAuthGuard.prototype.isThisRoleOrHigher = function () {
+        return (this.isThisRole() ||
+            this.auth.getUserRole() == "admin");
+    };
+    return AllyAuthGuard;
+}());
+AllyAuthGuard = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], AllyAuthGuard);
+
+var _a, _b;
+//# sourceMappingURL=auth-guard-ally.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/role-authentication/auth-guard-client.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClientAuthGuard; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ClientAuthGuard = (function () {
+    function ClientAuthGuard(auth, router) {
+        this.auth = auth;
+        this.router = router;
+    }
+    ClientAuthGuard.prototype.canActivate = function () {
+        if (!this.auth.isAuthenticated()) {
+            this.router.navigate(['home']);
+            return false;
+        }
+        return this.isThisRole();
+    };
+    ClientAuthGuard.prototype.isThisRole = function () {
+        return this.auth.getUserRole() == "client";
+    };
+    ClientAuthGuard.prototype.isThisRoleOrHigher = function () {
+        return (this.isThisRole() ||
+            this.auth.getUserRole() == "ally" ||
+            this.auth.getUserRole() == "admin");
+    };
+    ClientAuthGuard.prototype.companyAccess = function () {
+        return this.auth.getUserCompany();
+    };
+    return ClientAuthGuard;
+}());
+ClientAuthGuard = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], ClientAuthGuard);
+
+var _a, _b;
+//# sourceMappingURL=auth-guard-client.service.js.map
 
 /***/ }),
 
@@ -1388,16 +1959,20 @@ var _a, _b;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_guard_service__ = __webpack_require__("../../../../../src/app/auth-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__company_company_component__ = __webpack_require__("../../../../../src/app/company/company.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__company_form_company_form_component__ = __webpack_require__("../../../../../src/app/company-form/company-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_form_user_form_component__ = __webpack_require__("../../../../../src/app/user-form/user-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__billing_record_billing_record_component__ = __webpack_require__("../../../../../src/app/billing-record/billing-record.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__billing_record_form_billing_record_form_component__ = __webpack_require__("../../../../../src/app/billing-record-form/billing-record-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__invoice_form_invoice_form_component__ = __webpack_require__("../../../../../src/app/invoice-form/invoice-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__invoice_invoice_component__ = __webpack_require__("../../../../../src/app/invoice/invoice.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-client.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-ally.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__role_authentication_auth_guard_admin_service__ = __webpack_require__("../../../../../src/app/role-authentication/auth-guard-admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__company_company_component__ = __webpack_require__("../../../../../src/app/company/company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__company_form_company_form_component__ = __webpack_require__("../../../../../src/app/company-form/company-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__user_form_user_form_component__ = __webpack_require__("../../../../../src/app/user-form/user-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__billing_record_billing_record_component__ = __webpack_require__("../../../../../src/app/billing-record/billing-record.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__billing_record_company_billing_record_component__ = __webpack_require__("../../../../../src/app/billing-record/company-billing-record.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__billing_record_form_billing_record_form_component__ = __webpack_require__("../../../../../src/app/billing-record-form/billing-record-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__invoice_form_invoice_form_component__ = __webpack_require__("../../../../../src/app/invoice-form/invoice-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__invoice_invoice_component__ = __webpack_require__("../../../../../src/app/invoice/invoice.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__invoice_company_invoice_component__ = __webpack_require__("../../../../../src/app/invoice/company-invoice.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1417,19 +1992,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_5__home_home_component__["a" /* HomeComponent */] },
-    { path: 'company', component: __WEBPACK_IMPORTED_MODULE_3__company_company_component__["a" /* CompanyComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'company/edit/:id', component: __WEBPACK_IMPORTED_MODULE_4__company_form_company_form_component__["a" /* CompanyFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'company/add', component: __WEBPACK_IMPORTED_MODULE_4__company_form_company_form_component__["a" /* CompanyFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user', component: __WEBPACK_IMPORTED_MODULE_6__user_user_component__["a" /* UserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/edit/:id', component: __WEBPACK_IMPORTED_MODULE_7__user_form_user_form_component__["a" /* UserFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/add', component: __WEBPACK_IMPORTED_MODULE_7__user_form_user_form_component__["a" /* UserFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'billing-record', component: __WEBPACK_IMPORTED_MODULE_8__billing_record_billing_record_component__["a" /* BillingRecordComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'billing-record/add', component: __WEBPACK_IMPORTED_MODULE_9__billing_record_form_billing_record_form_component__["a" /* BillingRecordFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'invoice/add', component: __WEBPACK_IMPORTED_MODULE_10__invoice_form_invoice_form_component__["a" /* InvoiceFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'invoice', component: __WEBPACK_IMPORTED_MODULE_11__invoice_invoice_component__["a" /* InvoiceComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_guard_service__["a" /* AuthGuard */]] }
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_7__home_home_component__["a" /* HomeComponent */] },
+    { path: 'company', component: __WEBPACK_IMPORTED_MODULE_5__company_company_component__["a" /* CompanyComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */]] },
+    { path: 'company/edit/:id', component: __WEBPACK_IMPORTED_MODULE_6__company_form_company_form_component__["a" /* CompanyFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */]] },
+    { path: 'company/add', component: __WEBPACK_IMPORTED_MODULE_6__company_form_company_form_component__["a" /* CompanyFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */]] },
+    { path: 'user', component: __WEBPACK_IMPORTED_MODULE_8__user_user_component__["a" /* UserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__role_authentication_auth_guard_admin_service__["a" /* AdminAuthGuard */]] },
+    { path: 'user/edit/:id', component: __WEBPACK_IMPORTED_MODULE_9__user_form_user_form_component__["a" /* UserFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__role_authentication_auth_guard_admin_service__["a" /* AdminAuthGuard */]] },
+    { path: 'user/add', component: __WEBPACK_IMPORTED_MODULE_9__user_form_user_form_component__["a" /* UserFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__role_authentication_auth_guard_admin_service__["a" /* AdminAuthGuard */]] },
+    { path: 'billing-record', component: __WEBPACK_IMPORTED_MODULE_10__billing_record_billing_record_component__["a" /* BillingRecordComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */]] },
+    { path: 'billing-record/add', component: __WEBPACK_IMPORTED_MODULE_12__billing_record_form_billing_record_form_component__["a" /* BillingRecordFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */]] },
+    { path: 'invoice/add', component: __WEBPACK_IMPORTED_MODULE_13__invoice_form_invoice_form_component__["a" /* InvoiceFormComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */]] },
+    { path: 'invoice', component: __WEBPACK_IMPORTED_MODULE_14__invoice_invoice_component__["a" /* InvoiceComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_3__role_authentication_auth_guard_ally_service__["a" /* AllyAuthGuard */]] },
+    { path: 'company-billing-record', component: __WEBPACK_IMPORTED_MODULE_11__billing_record_company_billing_record_component__["a" /* CompanyBillingRecordComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */]] },
+    { path: 'company-invoice', component: __WEBPACK_IMPORTED_MODULE_15__invoice_company_invoice_component__["a" /* CompanyInvoiceComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__role_authentication_auth_guard_client_service__["a" /* ClientAuthGuard */]] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -1696,7 +2277,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user/user.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Users</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <h2>Users</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/user/add\">Add User</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>username</th>\r\n        <th>Type</th>\r\n        <th>Company Name</th>\r\n        <th>Admin</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let user of users\">\r\n        <td>{{user.id}}</td>\r\n        <td>{{user.username}}</td>\r\n        <td>{{user.type}}</td>\r\n        <td>{{user.company?.name}}</td>\r\n        <td class=\"text-center\">\r\n          <a class=\"btn btn-primary\" [routerLink]=\"['/user/edit/', user.id]\">Edit</a>&nbsp;\r\n          <!-- <button (click)=\"deleteUser(user.id)\" class=\"btn btn-danger\">Delete</button> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
+module.exports = "<section @fadeInAnimation>\r\n  <ol class=\"breadcrumb\">\r\n      <li><a routerLink=\"/home\">Home</a></li>\r\n      <li class=\"active\">Users</li>\r\n  </ol>\r\n\r\n  <app-status-message [successMessage]=\"successMessage\" [errorMessage]=\"errorMessage\"></app-status-message>\r\n\r\n  <h2>Users</h2>\r\n\r\n  <a class=\"btn btn-primary\" routerLink=\"/user/add\">Add User</a>\r\n\r\n  <table class=\"table table-striped table-bordered\" id=\"dataTable\" style=\"width:100%\">\r\n    <thead>\r\n      <tr>\r\n        <th>ID</th>\r\n        <th>username</th>\r\n        <th>Type</th>\r\n        <th>Company Name</th>\r\n        <th>Actions</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let user of users\">\r\n        <td>{{user.id}}</td>\r\n        <td>{{user.username}}</td>\r\n        <td>{{user.type}}</td>\r\n        <td>{{user.company?.name}}</td>\r\n        <td class=\"text-center\">\r\n          <a class=\"btn btn-primary\" [routerLink]=\"['/user/edit/', user.id]\">Edit</a>&nbsp;\r\n          <!-- <button (click)=\"deleteUser(user.id)\" class=\"btn btn-danger\">Delete</button> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</section>\r\n"
 
 /***/ }),
 

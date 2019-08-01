@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 exports.i(__webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../material/prebuilt-themes/deeppurple-amber.css"), "");
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n    padding-top: 70px;\r\n}\r\n\r\ntable {\r\n  margin-top: 10px;\r\n}\r\n\r\n/* Customize container */\r\n@media (min-width: 600px) {\r\n    .container {\r\n        max-width: 768px;\r\n    }\r\n}\r\n/* Customize container */\r\n@media (min-width: 800px) {\r\n    .container-fluid {\r\n        max-width: 1024px;\r\n    }\r\n}\r\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n    padding-top: 70px;\r\n}\r\n\r\ntable {\r\n  margin-top: 10px;\r\n}\r\n\r\n/* Customize container */\r\n@media (min-width: 600px) {\r\n    /*\r\n    .container {\r\n        max-width: 768px;\r\n    }\r\n    */\r\n}\r\n/* Customize container */\r\n@media (min-width: 800px) {\r\n    .container-fluid {\r\n        /*\r\n        max-width: 1024px;\r\n        */\r\n    }\r\n}\r\n", ""]);
 
 // exports
 

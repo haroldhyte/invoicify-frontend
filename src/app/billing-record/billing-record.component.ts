@@ -6,6 +6,7 @@ import { DataService } from '../data.service'
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
+import { compareDates } from '../common-functions/date-compare';
 
 @Component({
   selector: 'app-billing-record',
@@ -56,17 +57,7 @@ sortBy(category){
         return this.billingRecords.sort((a,b)=> a.createdBy.username.localeCompare(b.createdBy.username))
       }
       if( category === 'dueDate'){
-        return this.billingRecords.sort((a,b) =>
-          {
-            let left = new Date(a.dueDate).getUTCDate();
-            let right = new Date(b.dueDate).getUTCDate();
-            if(left < right) {
-              return -1;
-            } else if (left === right) {
-              return 0;
-            } else return 1;
-          }
-        );
+        return this.billingRecords.sort((a, b)=> { return compareDates(a, b); });
       }
       return this.billingRecords.sort((a,b)=> b[category].localeCompare(a[category]));
 
@@ -85,17 +76,7 @@ sortBy(category){
         return this.billingRecords.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
       }
       if( category === 'dueDate'){
-        return this.billingRecords.sort((a,b) =>
-          {
-            let left = new Date(a.dueDate).getUTCDate();
-            let right = new Date(b.dueDate).getUTCDate();
-            if(left > right) {
-              return -1;
-            } else if (left === right) {
-              return 0;
-            } else return 1;
-          }
-        );
+        return this.billingRecords.sort((a, b)=> { return compareDates(b, a); });
       }
       return this.billingRecords.sort((a,b)=> a[category].localeCompare(b[category]));
     }

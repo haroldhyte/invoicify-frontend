@@ -18,6 +18,9 @@ export class BillingRecordComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   billingRecords: any[];
+  hasUnpaidBills: boolean;
+  mySetCompaniesWithBills: Set<string> = new Set();
+  mySetCompaniesWithBillsYellow: Set<string> = new Set();
   reverse: boolean;
 
 
@@ -30,14 +33,43 @@ export class BillingRecordComponent implements OnInit {
 
   companyId = -1;
 
-  constructor (private dataService: DataService, public dialog: MatDialog) {}
+  constructor (private dataService: DataService, public dialog: MatDialog) {
+    // this.billingRecords = [];
+    // this.hasUnpaidBills = false;
+  }
 
-  ngOnInit() { this.getBillingRecords(); }
+  ngOnInit() { 
+    this.getBillingRecords();
+  }
+  checkUnpaidBills() {
+    const now = new Date(Date.now())
+    for(var myBill in this.billingRecords) {
+      const dueDate = new Date(this.billingRecords[myBill].dueDate)
+      if (this.billingRecords[myBill].status == 'Unpaid' && now > dueDate) {
+         this.mySetCompaniesWithBills.add(this.billingRecords[myBill].client.name)
+      }
+    }
+  }
 
+  checkUpcomingBills() {
+    const now = new Date(Date.now())
+    const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
+    for(var myBill in this.billingRecords) {
+      const dueDate = new Date(this.billingRecords[myBill].dueDate)
+      if((dueDate >= now && dueDate <= twoDaysFromNow) && this.billingRecords[myBill].status == "Unpaid"){
+         this.mySetCompaniesWithBillsYellow.add(this.billingRecords[myBill].client.name)
+      }
+    }
+  }
+  
   getBillingRecords() {
     this.dataService.getRecords("billing-record")
       .subscribe(
-        results => this.billingRecords = results.sort((a,b)=> b.status.localeCompare(a.status)),
+        results => {
+          this.billingRecords = results
+          this.checkUnpaidBills();
+          this.checkUpcomingBills();
+        },
         error =>  this.errorMessage = <any>error);
   }
 
@@ -148,7 +180,7 @@ sortBy(category){
     if( (dueDate < now ) && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['overdue']
     }
-    if((twoDaysFromNow >= dueDate || dueDate <= now ) && BillingRecord.status == "Unpaid") {
+    if(twoDaysFromNow >= dueDate && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['warning']
     }
   }

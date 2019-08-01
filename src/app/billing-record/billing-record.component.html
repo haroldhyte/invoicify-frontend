@@ -6,19 +6,28 @@
 
   <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-  <div id="message" *ngIf="companyId == -1">
-    <div>
-      <div id="inner-message" class="alert alert-error" *ngIf="companyId == -1">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        Companies have unpaid records.
+  <div id="message" style="display: inline-flexbox;" *ngIf="companyId == -1">
+      <div>
+        <div id="inner-message" class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <p style="padding-bottom: 1em;">Companies that have unpaid records: </p>
+            <div *ngFor="let companyName of mySetCompaniesWithBills"> 
+              <span>{{companyName}}</span>
+            </div>
+       </div>
       </div>
-      <!--<div id="inner-message" class="alert alert-error" *ngIf="companyId != -1">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        Your company has unpaid records.
-      </div>-->
     </div>
-  </div>
-
+    <div id="messageTwo" style="display: inline-flexbox;" *ngIf="companyId == -1">
+        <div>
+          <div id="inner-message" class="alertyellow alert-error">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <p style="padding-bottom: 1em;">Companies that have record due dates approaching: </p>
+              <div *ngFor="let companyNameYellow of mySetCompaniesWithBillsYellow"> 
+                <span>{{companyNameYellow}}</span>
+              </div>
+         </div>
+        </div>
+      </div>
 
 <h2>Billing Records</h2>
 
@@ -29,10 +38,10 @@
       <tr>
         <th (click)="sortBy('id')">ID</th>
         <th (click)="sortBy('description')">Description</th>
-        <th (click)="sortBy('client')">Client</th>
-        <th>Rate</th>
+        <th class="col-sm-2" (click)="sortBy('client')">Client</th>
+        <th class="col-sm-2">Rate</th>
         <th (click)="sortBy('createdBy')">Created By</th>
-        <th (click)="sortBy('status')">Status</th>
+        <th class="col-sm-2" (click)="sortBy('status')">Status</th>
         <th (click)="sortBy('total')">Total</th>
         <th (click)="sortBy('dueDate')">Due Date</th>
         <th>Actions</th>

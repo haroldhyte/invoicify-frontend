@@ -6,6 +6,7 @@ import { DataService } from '../data.service'
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
+import { compareDates } from '../common-functions/date-compare';
 
 @Component({
   selector: 'app-billing-record',
@@ -21,7 +22,7 @@ export class BillingRecordComponent implements OnInit {
   mySetCompaniesWithBills: Set<string> = new Set();
   mySetCompaniesWithBillsYellow: Set<string> = new Set();
   reverse: boolean;
- 
+
 
   COLOR_STATUS = {
     overdue: 'alert',
@@ -29,6 +30,8 @@ export class BillingRecordComponent implements OnInit {
     alert: 'class_style_here',
     unpaid: 'alert'
   };
+
+  companyId = -1;
 
   constructor (private dataService: DataService, public dialog: MatDialog) {
     // this.billingRecords = [];
@@ -85,6 +88,9 @@ sortBy(category){
       if( category === 'createdBy'){
         return this.billingRecords.sort((a,b)=> a.createdBy.username.localeCompare(b.createdBy.username))
       }
+      if( category === 'dueDate'){
+        return this.billingRecords.sort((a, b)=> { return compareDates(a, b); });
+      }
       return this.billingRecords.sort((a,b)=> b[category].localeCompare(a[category]));
 
     } else{
@@ -101,10 +107,22 @@ sortBy(category){
       if( category === 'createdBy'){
         return this.billingRecords.sort((a,b)=> b.createdBy.username.localeCompare(a.createdBy.username))
       }
+      if( category === 'dueDate'){
+        return this.billingRecords.sort((a, b)=> { return compareDates(b, a); });
+      }
       return this.billingRecords.sort((a,b)=> a[category].localeCompare(b[category]));
     }
   }
 
+  compareDates(a, b) {
+    let left = new Date(a);
+    let right = new Date(b)
+    if(left < right) {
+      return -1;
+    } else if (left === right) {
+      return 0;
+    } else return 1;
+  }
 
   compareDate(d) {
     const date = new Date(d);
@@ -149,7 +167,7 @@ sortBy(category){
           },
           error => {this.errorMessage = <any>error}
         )
-      }   
+      }
     })
   }
 
@@ -158,7 +176,7 @@ sortBy(category){
     const dueDate = new Date(BillingRecord.dueDate);
     const now = new Date(Date.now())
     const twoDaysFromNow = new Date (new Date().getTime() + (2 * 24 * 60 * 60 * 1000))
-   
+
     if( (dueDate < now ) && BillingRecord.status == "Unpaid") {
       return this.COLOR_STATUS['overdue']
     }
@@ -167,4 +185,3 @@ sortBy(category){
     }
   }
 }
-

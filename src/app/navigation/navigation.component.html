@@ -8,8 +8,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" routerLink="/home">
-                <img width="100" alt="Invoicify - HR" src="assets/images/ally_logo.png" />
+            <a routerLink="/home">
+              <div class="navbar-form navbar-left">
+              <button style="background-color: #fff7f0; border-color: #fff7f0;" class="btn btn-neutral" style="color: black;">
+                <b>Invoicify by <span style="color: #5f285e;">Ally Financial</span></b></button>
+                <!--<img width="100" alt="Invoicify - HR" src="assets/images/ally_logo.png" />-->
+              </div>
             </a>
         </div>
          <!--/.nav-collapse -->
@@ -22,26 +26,32 @@
             </div>
             <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-success">Login</button>
         </form>
-        <div class="navbar-text navbar-right" *ngIf="authService.isAuthenticated()">
-            Signed in as: <a [routerLink]="['/user/edit/', auth_user.id]">{{auth_user.username}}</a>
-            <button type="submit" class="btn btn-primary" (click)="logout()">Logout</button> 
+        <div class="navbar-form navbar-right" *ngIf="authService.isAuthenticated()">
+            <button style="background-color: #371447; border-color: #371447;" type="submit" class="btn btn-primary"><b>{{auth_user.username}}</b></button>
+            <button style="background-color: #cb3974; border-color: #cb3974;" type="submit" class="btn btn-primary" (click)="logout()">Logout</button>
         </div>
-  
+
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li routerLinkActive="active">
                     <a routerLink="/home">Home</a>
                 </li>
-                <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
+                <li *ngIf="allyAuth.isThisRoleOrHigher()" routerLinkActive="active">
                     <a routerLink="/company">Companies</a>
                 </li>
-                <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
+                <li *ngIf="clientAuth.isThisRole()" routerLinkActive="active">
+                    <a routerLink="/company-billing-record">Company Billing Records</a>
+                </li>
+                <li *ngIf="allyAuth.isThisRoleOrHigher()" routerLinkActive="active">
                     <a routerLink="/billing-record">Billing Records</a>
                 </li>
-                <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
-                        <a routerLink="/invoice">Invoices</a>
-                    </li>
-                <li *ngIf="authService.isAuthenticated()" routerLinkActive="active">
+                <li *ngIf="clientAuth.isThisRole()" routerLinkActive="active">
+                    <a routerLink="/company-invoice">Company Invoices</a>
+                </li>
+                <li *ngIf="allyAuth.isThisRoleOrHigher()" routerLinkActive="active">
+                    <a routerLink="/invoice">Invoices</a>
+                </li>
+                <li *ngIf="adminAuth.isThisRoleOrHigher()" routerLinkActive="active">
                     <a routerLink="/user">Users</a>
                 </li>
             </ul>

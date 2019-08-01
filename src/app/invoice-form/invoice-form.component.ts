@@ -51,6 +51,12 @@ export class InvoiceFormComponent implements OnInit {
   saveInvoice(invoiceForm: NgForm) {
     let endpoint = "invoice/" + invoiceForm.value.client;
     delete(invoiceForm.value.client)
+
+    let date = new Date(invoiceForm.value.dueDate + " 0:00:01")
+    invoiceForm.value.dueDate = date.toLocaleDateString()
+    let date2 = new Date(invoiceForm.value.createdOn + " 0:00:01")
+    invoiceForm.value.createdOn = date2.toLocaleDateString()
+
     this.dataService.addRecord(endpoint, invoiceForm.value)
       .subscribe(
         company => this.successMessage = "Record added successfully",

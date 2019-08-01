@@ -30,4 +30,17 @@ export class AuthService {
   public isAuthenticated(): boolean {
     return !!localStorage.getItem("auth_user");
   }
+
+  public getUserRole(): string {
+    if (this.isAuthenticated())
+    {
+      let auth_user = JSON.parse(localStorage.getItem("auth_user"));
+      return auth_user.type;
+    } else return "unauthenticated";
+  }
+
+  public getUserCompany() {
+    let auth_user = JSON.parse(localStorage.getItem("auth_user"));
+    return auth_user.company;
+  }
 }

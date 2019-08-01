@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { DataService } from '../data.service'
+import { ClientAuthGuard } from '../role-authentication/auth-guard-client.service';
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
@@ -12,7 +13,7 @@ import { compareDates } from '../common-functions/date-compare';
   styleUrls: ['./invoice.component.css'],
   animations: [fadeInAnimation]
 })
-export class InvoiceComponent implements OnInit {
+export class CompanyInvoiceComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   invoices: any[];
@@ -20,12 +21,18 @@ export class InvoiceComponent implements OnInit {
 
   companyId = -1;
 
-  constructor (private dataService: DataService) {}
+  constructor (private dataService: DataService, private clientAuth: ClientAuthGuard) {
+    this.companyId = this.getCompany().id;
+  }
 
   ngOnInit() { this.getInvoices(); }
 
+  getCompany() {
+    return this.clientAuth.companyAccess();
+  }
+
   getInvoices() {
-    this.dataService.getRecords("invoice")
+    this.dataService.getRecord("invoice/company", this.companyId)
       .subscribe(
         results => this.invoices = results.sort((a,b)=> b.createdOn.localeCompare(a.createdOn)),
         error =>  this.errorMessage = <any>error);
@@ -38,7 +45,7 @@ export class InvoiceComponent implements OnInit {
           return this.invoices.sort((a,b)=> b[category] - a[category])
         }
         if (category === 'client'){
-          return this.invoices.sort((a,b)=> a.company.name.localeCompare(b.company.name))
+          return this.invoices.sort((a,b)=> a.client.name.localeCompare(b.client.name))
         }
         if(category === 'rate'){
           return this.invoices.sort((a,b)=> a.rate.localeCompare(b.rate))
@@ -60,7 +67,7 @@ export class InvoiceComponent implements OnInit {
           return this.invoices.sort((a,b)=> a[category] - b[category])
         }
         if (category === 'client'){
-          return this.invoices.sort((a,b)=> b.company.name.localeCompare(a.company.name))
+          return this.invoices.sort((a,b)=> b.client.name.localeCompare(a.client.name))
         }
         if(category === 'rate'){
           return this.invoices.sort((a,b)=> b.rate.localeCompare(a.rate))

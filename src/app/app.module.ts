@@ -17,13 +17,18 @@ import { CompanyFormComponent } from './company-form/company-form.component';
 import { StatusMessageComponent } from './status-message/status-message.component';
 
 import { AuthGuard } from './auth-guard.service';
+import { ClientAuthGuard } from './role-authentication/auth-guard-client.service';
+import { AllyAuthGuard } from './role-authentication/auth-guard-ally.service';
+import { AdminAuthGuard } from './role-authentication/auth-guard-admin.service';
 import { AuthService } from './auth.service';
 import { UserComponent } from './user/user.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { BillingRecordComponent } from './billing-record/billing-record.component';
+import { CompanyBillingRecordComponent } from './billing-record/company-billing-record.component';
 import { BillingRecordFormComponent } from './billing-record-form/billing-record-form.component';
 import { InvoiceFormComponent } from './invoice-form/invoice-form.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { CompanyInvoiceComponent } from './invoice/company-invoice.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +42,10 @@ import { InvoiceComponent } from './invoice/invoice.component';
     UserComponent,
     UserFormComponent,
     BillingRecordComponent,
+    CompanyBillingRecordComponent,
     BillingRecordFormComponent,
     InvoiceFormComponent,
+    CompanyInvoiceComponent,
     InvoiceComponent,
   ],
   imports: [
@@ -50,7 +57,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
     FormsModule
   ],
   entryComponents: [DeleteConfirmComponent],
-  providers: [DataService, AuthGuard, AuthService],
+  providers: [DataService, AuthGuard, ClientAuthGuard, AllyAuthGuard, AdminAuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
